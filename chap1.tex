@@ -1,174 +1,198 @@
-\chapter{The Basics}
+\chapter{Introduction}
+World Wide Web (WWW) got the popularity from its supports for documents, images, videos, 3D graphics, and so on. The web is also excellent source of information that is made available through browsers.
 
-\LaTeX\ can be viewed
-as a compiled programming language, in contrast to that 
-nightmare known as Microsoft Word,
-which can be viewed as an interpreted language. So, to typeset a
-document in \LaTeX, you create a text file that has the {\tt .tex} extension.
-This file includes some special
-commands, known as macros. Then
-you compile your {\tt .tex} file by running  \LaTeX,
-which produces your typeset document, as a pdf. 
+A drawback of basic web page is its limited behavior for dynamic contents. This can be addressed by two types of programming extensions -  One is server side programming languages and other is client-side programming languages \cite{LoginWeb}.
 
-In this paper, a few basics are discussed. There are plenty of good online resource
-if you need help with more advanced topics.
+Server side programming languages works on server which is situated across the network, and browser has to keep sending information to server to process the input. There are lots of languages choices available when it comes to programming on server - such as Java, Python, JavaScript, and so on \cite{LoginWeb}.
 
+Client side programming languages usually runs into browser which helps to generate more dynamic content, than simple web page can render. But, there are very limited alternatives available when it comes to programming web pages on browser such as Java Script or Java. Also, only one language can run in web page at one time.
 
-\section{Typesetting Text} 
+As processing power client side machines is increasing, client side programming is getting more popular among the software developer community. with that, feature list to suit the specific preferences of client side languages is growing. 
 
-To typeset text, you type whatever you want. Multiple spaces are
-ignored                           when typesetting, and
-the end of a line is treated as another space.
-Consequently, when you are typing, you can break lines anywhere, like here
-or here,
-since the lines are formatted automatically when you typeset the document.
-You start a new paragraph by leaving a blank line.
+But, Currently, Java Script is the ubiquitous language that runs in the browser. Java Script is used to enhance user interactivity within web pages, and can change the way a web page looks and acts at any time, based on user input.
 
-See how easy it is to start a new paragraph? A blank line does the trick.
+In this paper we are going to address building multi language support for browsers, where more than one language can work at the same time and all these languages will interact together to render the web page. 
 
 
-\section{Special Characters}
-
-Typesetting text is generally pretty easy. However, there are some special
-characters that will not be typeset as you might expect. In the remainder of this
-section we consider some of the most common of these
-special characters. 
-
-The backslash ``\verb+\+'' is used 
-as the ``escape'' character, meaning that
-whatever follows a backslash is interpreted as a macro.
-For example, when \verb+\LaTeX+ is typeset, it looks like \LaTeX, which 
-is a lot different from LaTeX.
-
-To get double quotes, use two single quotes. That is, the left double quote is ``, while the right double
-quote is ''. When you do it correctly, quoted text looks ``like this.''
-If you use the double quote key, you will always get right-quotes, which looks "like this," and is
-almost certainly not what you want.
-
-A tilde ``\verb+~+'' is used as a ``tie,'' that is, a space is inserted, but no line break can occur.
-For example, you might type Dr.~Stamp just to be sure that the line of text
-does not break between Dr. and Stamp, as it otherwise might.
-
-The percent sign is used for comments---everything following a percent sign 
-on a given line is ignored when you \LaTeX\ your file. % Like this stuff here
-If you want a percent sign to appear in your document, use \verb+\%+, 
-which will give you this \%.
-
-The dollar sign also has special meaning, since it is used to start and end
-math formulas. To typeset a dollar sign, use \verb+\$+, like this~\$.
-
-To force \LaTeX\ to insert a space, use a backslash followed by
-a space, that is, \verb+\ +. You can put in multiple extra spaces\ \ \ \ \ \ \ if you want.
-
-\section{Fonts}
-
-To change fonts, enclose the text in curly brackets and give the appropriate font command.
-For example, to italicize text, {\it do this}, and to get boldface, {\bf this is the ticket}.
-Another useful font is {\tt this one}, which produces a typewriter-like font.
+Chapter 2 discusses the background research done in the field of multi language environment. Chapter 3 discusses the Scheme environment and how it is implemented and how it is used to interact with browser. Chapter 4 the Lua environment and how it is implemented and how it is used to interact with browser. Chapter 5 describes the how application can be built using Scheme, Lua and Java Script working together in the same application. Finally, chapter 6 discusses areas of improvement and future work.
 
 
-\section{Math Basics}
+\section{Multi Language Browser Environment} 
 
-Math typesetting is a big, big, big topic---here we just cover some of
-the most basic issues. For more information, look online.
+It's known that every programming language is different, some are concise than others, while some are better in execution speed, or are closely related to underlying system and hardware. The problem of in cooperating various software modules from different programming languages can be called as multi language environment.
 
-The dollar sign is used to start and end math formulas, like~$\pi r^2$.
-If you want your formula displayed on a line by itself, then double
-dollar signs
-$$
-  d(X,Y) =  \sum_{i,j} |x_{ij} - y_{ij}| 
-$$
-are your friend.
+Nowadays, most of Non-trivial systems are not written in only one language.
+Instead, Many different languages are used; out of these are some the general purpose programming languages like Ruby, Java, or Java script, but also some of the domain specific languages.(DSLs). A recent survey about open source projects shows that the use of multi language environment is rather universal. So, multi language environment seems to be common, at least among open source group \cite{Mayer2017}.
 
-In math formulas, text gets typeset as math symbols. To
-insert regular text in a math formula, you can use the \verb+\mbox+
-command. Here is an example of a displayed equation with text
-$$
-  {n\choose 26} 26!\;  26^{n-26} < 26^n \approx 2^{4.7n} \mbox{ is a pretty formula} .
-$$ 
+There are several benefits of having multi language support in browser, such as increase in productivity, benefit from multi disciplinary client side web pages development, and so on. Multi language environment also supports different languages to work together, so that we can get best out of both the world.
+
+But, currently browser does not have capability to execute other languages like Scheme, and Lua. For these project, we will built multi language environment in the browser by enabling browser to parse and interpret small subset of languages like Scheme, and Lua.
+We built multi language environment which is a collection web pages written in different languages like Scheme, Lua and with standard Java Script. These languages will work together on different or might be the same part of the web page, and will help to render the page. We will see how the syntax and interaction of these languages in the upcoming sections. 
 
 
-\subsection{Numbered Equations}
+\subsection{Scheme}
 
-One of the most useful features of \LaTeX\ is its symbolic cross-references.
-What this means is that you can give names to equations, figures, tables, citations, etc., and
-refer to those equations, figures, tables, citations, etc., by their names. Then when you \LaTeX\
-the document, the correct numbers will magically appear in place of the
-names. This is very convenient when you move things around or you insert or delete
-stuff. You should definitely use this feature as much as possible.
+Scheme is general purpose simple but powerful programming language.
+It is conceptually clean and very easy to learn programming languages. Full mastery of the language requires careful practice and study. Scheme is widely used in computation research and education, it also also used in industrial applications like user interface designs, web navigators to virtual reality engines \cite{Dybvig:1996:SPL:525334}. Scheme is both formally and informally standardized. THe standard for scheme programming language \cite{schemeieee}.
 
-In this section, we discuss numbered equations, Then in Chapter~\ref{chap:blah}
-we consider other examples of symbolic cross-referencing.
-Again, this is a feature you should use, since it will save
-you a lot of time in the long run.
+Scheme programs are block scoped, and variables and keywords are lexically scopes. Occurance of same identifier outside the block of code, refer to different identifier, otherwise reference is invalid. Blocks can also be nested in each other.
 
-To typeset a displayed equation with a number, you can 
-use \verb+\begin{equation}+ to begin the equation, and \verb+\end{equation}+
-to end the equation. You also want to provide a label for the equation.
-For example,
-\begin{equation}\label{eq:swaps}
-  \sum_{i = 1}^{26} m_i \bigg( n - \sum_{j=1}^i m_j \bigg) 
-    = n^2 - \sum_{i = 1}^{26} m_i  \sum_{j=1}^i m_j = \sum_{i=1}^{25} \sum_{j=i+1}^{26} m_i m_j 
-\end{equation}
-gives us a numbered equation. 
+Scheme procedures are call-by-value. Procedures are also first object just like numbers, strings, and variable. Just like in other language, procedures can also be nested, and recursive. Same procedure call itself. 
 
-Note that labels can be used for
-just about anything that is numbered. Generally, to refer to a label,
-we use \verb+\ref{label}+, but for equations, you probably want to use
-\verb+\eref{label}+, since that will put parenthesis around the number.
+Let's take a look into small overview of scheme, which will give us an idea of getting started with writing scheme programs.
 
-So, we can now refer to equation~\eref{eq:swaps} anywhere in the paper.
-Better yet, if we move, insert, or delete text, the numbering will still be correct.
+\subsubsection{Scheme Syntax}
+
+This section gives small overview of Scheme as a language, to help us get some idea about scheme.
+
+Just like Lisp, for grouping scheme programs are written as prefix expressions within parentheses. In scheme name of the operation comes before its operand \cite{Krishnamurthi:1994:IS:197149.197166}.
+
+Scheme programs is combination of variables,objects , keywords, structured forms, comments, whitespaces, and constant strings (numbers, vectors, strings, etc.)  \cite{SchemeLanguage}.
 
 
-\subsection{Last Word on Equations}
 
-Again, typesetting equations is a big topic and we have only given the most basic
-of basics here. Just remember that almost anything is possible, and there
-are plenty of good resources available. 
+In C or most of languages a procedure call to foo with arguments baz, and bar looks is written like: 
+
+\begin{center}
+foo(baz, bar);
+\end{center}
+
+But, In Scheme its written as: 
+
+\begin{center}
+	(foo baz bar)
+\end{center}
+
+We can define variable in Scheme using define :
+
+\begin{center}
+	(define myvariable 5)
+\end{center}
+
+This will tell scheme to allocate variable myvariable and assign value 5 to it. In Scheme you always have to initialise variable value. 
+
+We can also define procedure using "define"
+
+\begin{center}
+	(define (two-times x)
+	
+	(* x x))
+\end{center}
+
+Above, statement created a procedure with name two-times with one argument. 
+
+Just, like in any other languages if-else in scheme can be implemented as follows:
+
+\begin{center}
+	
+	(define (min a b)
+	
+	(if ($<$ a b)
+	
+		a
+		
+		b))
+	
+\end{center}
+
+It will create procedure called "min" with two arguments a and b, and it will return minimum variable by comparing variables in if statements. if a is less than b then return a, otherwise return b.
+
+Scheme provides special procedure called lambda. Lambda does not give name to the procedure, it just returns the pointer to it.
+
+We can use lambda in define statement, to assign it to variable as shown below:
+
+\begin{center}
+	(define double (lambda (x)
+	
+	   (+ x x )))
+ 
+\end{center}
 
 
-\section{Lists}
+Here, we are creating procedure with one argument, and returning the pointer to it and we are storing that pointer into double variable using define.	 
 
-Numbered lists are not difficult. Here is an example
-of a numbered list:
-\begin{enumerate}
-\item Let $\mbox{\tt score} = \infty$
-\item Construct an initial {\tt putativeKey} 
-\item Parse the ciphertext using {\tt putativeKey}
-\item Compute {\tt newScore} based on the resulting putative plaintext
-\item If $\mbox{\tt newScore} < \mbox{\tt score}$ then 
-let $\mbox{\tt key} = \mbox{\tt putativeKey}$ and $\mbox{\tt score} = \mbox{\tt newScore}$
-\item Modify {\tt key} to obtain a new {\tt putativeKey}
-\item Goto~3
-\end{enumerate}
+\subsection{Lua}
 
-Bulleted lists are similar to numbered lists. Here is an example of a bulleted list:
-\begin{itemize}
-\item How can we determine an initial putative key?
-\item  How can we systematically modify the key?
-\item Given a putative key, how can we compute a score?
-\end{itemize}
+// Lua description will go here
+
+\section{Goal}
 
 
-\section{Verbatim}
+Main goal of this project to provide richer variety of languages for client, by creating multi language support for browser by integrating client side implementation of Scheme, Lua, with existing Java Script and to dive deeper into questions like 
 
-To force \LaTeX\ to typeset exactly what you type, you might want to use the \verb+\verb+
-macro. Here is an example:
-\verb+four score    and seven+. Note that everything between the ``+'' signs
-is typeset as it appears. 
+1) How applications can benefit from it?
 
-If you happen to have a lot of verbatim text, you can use the verbatim environment,
-like this:
+2) How can we make multi language environment easy to use?
 
-\begin{verbatim}
-Four score
-and seven
-years
-ago.........
-\end{verbatim}
+Another goal of this project is create browser plugin and client side libraries to parse and interpret Scheme and Lua using Java Script. Also, implement language subset of these languages to interact with DOM.
 
-Generally, verbatim should be used sparingly, if at all. But, since
-verbatim text has already appeared several times in this document, I thought it
-should be explained.
 
+This project does not try to achieve most efficient solution to multi language browser support. but we think that our solution will definitely help the software community.
+
+
+\section{Approches}
+
+There are variety of possible approaches to built multi language support for the browser. In this project, we are going to focus on following approaches. 
+
+\subsection{Browser Plugin } 
+
+
+\begin{figure}[ht]
+	\begin{center}
+		\includegraphics[width=\linewidth]{./images/browserPluginApproach.png}
+	\end{center}
+	\caption{Browser Plugin Approach : Architecture}
+	\label{fig:pluginarchitecture}
+\end{figure}
+
+  For this approach, multi language support will be integrated into web browsers (Mozilla, Chrome) using Mozilla, and Chrome Plugin. Plugin will process, interpret any Scheme and Lua script on the page and will inject necessary event into the page again. as shown in figure \ref{fig:pluginarchitecture}
+	 
+  Whenever new web page is loaded into the browser, browser plugin will scan the web page for any Scheme or Lua scripts on that page. matching scripts will then be parsed by the parser and interpreter will interpret this parsed input into necessary DOM events and sends these events to the web page. 
+  
+  All the interaction between languages is managed by browser plugin. Advantage of having this approach is programmer does not have to worry about adding all the libraries necessary for multi language support, into the web page. Disadvantages of having this approach is, it makes interaction between these languages little complex and also, plugin needs to have permission to read scripts from the web page.
+  
+
+	
+\subsection{JS Library}
+
+\begin{figure}[ht]
+	\begin{center}
+		\includegraphics[width=\linewidth]{./images/JSLibraryApproach.png}
+	\end{center}
+	\caption{JS Library Approach : Architecture}
+	\label{fig:jslibraryarchitecture}
+\end{figure}
+
+   In this approach, multi language support is achieved in web pages by including libraries in web page itself. When web page will loaded into browser, it will be loaded with necessary language support libraries, which will help browser to interpret these languages and help to achieve necessary interaction between different languages. Script can be included in browser as shown in figure \ref{fig:jslibraryarchitecture} .
+   
+   All the interaction between different languages is handled explicitly by the programmer by referencing these libraries in his web page directly. Advantages of taking this approach is that, programmer will get more flexibility over language interaction. Disadvantage is programmer has to take care of adding all the language specific libraries to the web page.  
+
+\section{Challenges}
+
+There are many challenges while building multi language support for any application. For building multi language support for browser these are some of the challenges that we came across.
+
+\subsection{Different APIs for DOM}
+
+To render web pages on the browser, language has to work with browser's DOM APIs. Every language has its own syntax for interacting with DOM APIs. 
+
+
+Currently, there is no implementation of Scheme, and Lua for browser side platform. For this project, we had to create our own subset of Scheme, and Lua which works with browser's DOM APIs, and JavaScript. We had to write our own parser and interpreter for these languages in browser.
+
+It was challenging to decide how the language syntax will look like for doing DOM manipulations(DOM APIs) and interacting with other languages.
+
+
+
+\subsection{Interaction between languages}
+
+
+
+
+\section{Results}
+
+The results of this project will be, 
+
+1) Parser and Interpreter libraries for Scheme and Lua with support for DOM and interaction with Java Script.
+
+2) Browser plugin for Chrome, and Firefox which can execute scheme, and lua scripts from any page opened in the browser.
+
+3) Application built using Java Script, Scheme, and Lua working together.

@@ -1,0 +1,94 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{#1}
+\addcustomcontentsline
+\csname url@rmstyle\endcsname
+\providecommand{\newblock}{\relax}
+\providecommand{\bibinfo}[2]{#2}
+\providecommand\BIBentrySTDinterwordspacing{\spaceskip=0pt\relax}
+\providecommand\BIBentryALTinterwordstretchfactor{4}
+\providecommand\BIBentryALTinterwordspacing{\spaceskip=\fontdimen2\font plus
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
+\providecommand\BIBforeignlanguage[2]{{%
+\expandafter\ifx\csname l@#1\endcsname\relax
+\typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
+\typeout{** loaded for the language `#1'. Using the pattern for}%
+\typeout{** the default language instead.}%
+\else
+\language=\csname l@#1\endcsname
+\fi
+#2}}
+
+\bibitem{LoginWeb}
+S.~WaiLok and A.~Davison, ``Logicweb: Enhancing the web with logic
+  programming,'' \emph{The Journal of Logic Programming}, vol.~36, pp.
+  195\textendash240, 1998.
+
+\bibitem{Mayer2017}
+\BIBentryALTinterwordspacing
+P.~Mayer, M.~Kirsch, and M.~A. Le, ``On multi-language software development,
+  cross-language links and accompanying tools: a survey of professional
+  software developers,'' \emph{Journal of Software Engineering Research and
+  Development}, vol.~5, no.~1, p.~1, Apr 2017. [Online]. Available:
+  \url{https://doi.org/10.1186/s40411-017-0035-z}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Dybvig:1996:SPL:525334}
+R.~K. Dybvig, \emph{The Scheme Programming Language: ANSI Scheme},
+  2nd~ed.\hskip 1em plus 0.5em minus 0.4em\relax Upper Saddle River, NJ, USA:
+  Prentice Hall PTR, 1996.
+
+\bibitem{schemeieee}
+``{IEEE Standard for the Scheme Programming Language},'' \emph{IEEE Std
+  1178-1990}.
+
+\bibitem{Krishnamurthi:1994:IS:197149.197166}
+\BIBentryALTinterwordspacing
+S.~Krishnamurthi, ``An introduction to scheme,'' \emph{Crossroads}, vol.~1,
+  no.~2, pp. 1927, Dec. 1994. [Online]. Available:
+  \url{http://doi.acm.org/10.1145/197149.197166}
+\BIBentrySTDinterwordspacing
+
+\bibitem{SchemeLanguage}
+``{Scheme Programming Language} description,''
+  \url{https://www.scheme.com/tspl3/intro.html}, accessed: 2017-11-28.
+
+\bibitem{Kennedy:2001:DIG:381694.378797}
+\BIBentryALTinterwordspacing
+A.~Kennedy and D.~Syme, ``Design and implementation of generics for the .net
+  common language runtime,'' \emph{SIGPLAN Not.}, vol.~36, no.~5, pp. 112, May
+  2001. [Online]. Available: \url{http://doi.acm.org/10.1145/381694.378797}
+\BIBentrySTDinterwordspacing
+
+\bibitem{commonlanguageruntime}
+``{Common Language Runtime (CLR)},''
+  \url{https://docs.microsoft.com/en-us/dotnet/standard/clr}, accessed:
+  2017-11-29.
+
+\bibitem{Gough:2001:CNC:559569}
+J.~J. Gough and K.~J. Gough, \emph{Compiling for the .Net Common Language
+  Runtime}.\hskip 1em plus 0.5em minus 0.4em\relax Upper Saddle River, NJ, USA:
+  Prentice Hall PTR, 2001.
+
+\bibitem{Singer:2003:JVC:957289.957341}
+\BIBentryALTinterwordspacing
+J.~Singer, ``{JVM Versus CLR}: A comparative study,'' in \emph{Proceedings of
+  the 2Nd International Conference on Principles and Practice of Programming in
+  Java}, ser. PPPJ '03.\hskip 1em plus 0.5em minus 0.4em\relax New York, NY,
+  USA: Computer Science Press, Inc., 2003, pp. 167169. [Online]. Available:
+  \url{http://dl.acm.org/citation.cfm?id=957289.957341}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Juneau2017}
+\BIBentryALTinterwordspacing
+J.~Juneau, \emph{Nashorn and Scripting}.\hskip 1em plus 0.5em minus 0.4em\relax
+  Berkeley, CA: Apress, 2017, pp. 529551. [Online]. Available:
+  \url{https://doi.org/10.1007/978-1-4842-1976-8_18}
+\BIBentrySTDinterwordspacing
+
+\bibitem{javascripting}
+``{The Java Scripting API},''
+  \url{https://docs.oracle.com/javase/8/docs/technotes/guides/scripting/prog_guide/api.html},
+  accessed: 2017-11-29.
+
+\end{thebibliography}

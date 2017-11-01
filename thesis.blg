@@ -1,0 +1,29 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: thesis.aux
+A level-1 auxiliary file: chap1.aux
+A level-1 auxiliary file: chap2.aux
+A level-1 auxiliary file: chap3.aux
+A level-1 auxiliary file: chap4.aux
+A level-1 auxiliary file: chap5.aux
+A level-1 auxiliary file: chap6.aux
+The style file: uriref.bst
+Database file #1: references.bib
+Repeated entry---line 166 of file references.bib
+ : @book{Gough:2001:CNC:559569
+ :                            ,
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 218 of file references.bib
+ :      
+ :      year={1991}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+ 
+-- University of Rhode Island references, version 1.1 (2005/07/12),
+--  based on IEEEtran.bst version 1.11 (2003/04/02) by Michael Shell.
+--  http://www.ele.uri.edu/info/thesis/uritex/uriref.bst
+-- See the manual "IEEEtran_bst_HOWTO.pdf" for usage information,
+--  available at http://www.ele.uri.edu/info/thesis/IEEEtran_bst_HOWTO.pdf
+Warning--empty author in schemeieee
+Warning--empty year in schemeieee
+
+Done.
+(There were 2 error messages)

@@ -1120,6 +1120,7 @@ SAN JOS\'{E} STATE UNIVERSITY\\
 % Create abstract page(s), counted, not numbered.
 \def\abstractpages{\@ifundefined{@abstract}{}{
   \newpage
+  
   \sloppy
   \chapter*{ABSTRACT\\ {\normalfont \vspace{12pt} \@title\\ \vspace{12pt} by \@author}}
 %  \addcontentsline{toc}{chapterx}{ABSTRACT}
