@@ -1,0 +1,94 @@
+\begin{thesisbib}{10}
+\providecommand{\url}[1]{#1}
+\addcontentsline{toc}{chapterx}{\biblioname}
+\csname url@rmstyle\endcsname
+\providecommand{\newblock}{\relax}
+\providecommand{\bibinfo}[2]{#2}
+\providecommand\BIBentrySTDinterwordspacing{\spaceskip=0pt\relax}
+\providecommand\BIBentryALTinterwordstretchfactor{4}
+\providecommand\BIBentryALTinterwordspacing{\spaceskip=\fontdimen2\font plus
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus
+  \fontdimen4\font\relax}
+\providecommand\BIBforeignlanguage[2]{{%
+\expandafter\ifx\csname l@#1\endcsname\relax
+\typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
+\typeout{** loaded for the language `#1'. Using the pattern for}%
+\typeout{** the default language instead.}%
+\else
+\language=\csname l@#1\endcsname
+\fi
+#2}}
+
+\item[]
+``{Common Language Runtime (CLR)},''
+  \url{https://docs.microsoft.com/en-us/dotnet/standard/clr}, accessed:
+  2017-11-29.
+
+\item[]
+``{IEEE Standard for the Scheme Programming Language},'' \emph{IEEE Std
+  1178-1990}.
+
+\item[]
+``{Scheme Programming Language} description,''
+  \url{https://www.scheme.com/tspl3/intro.html}, accessed: 2017-11-28.
+
+\item[]
+``{The Java Scripting API},''
+  \url{https://docs.oracle.com/javase/8/docs/technotes/guides/scripting/prog_guide/api.html},
+  accessed: 2017-11-29.
+
+\item[]
+Dybvig, R.~K., \emph{The Scheme Programming Language: ANSI Scheme},
+  2nd~ed.\hskip 1em plus 0.5em minus 0.4em\relax Upper Saddle River, NJ, USA:
+  Prentice Hall PTR, 1996.
+
+\item[]
+Gough, J.~J. and Gough, K.~J., \emph{Compiling for the .Net Common Language
+  Runtime}.\hskip 1em plus 0.5em minus 0.4em\relax Upper Saddle River, NJ, USA:
+  Prentice Hall PTR, 2001.
+
+\item[]
+\BIBentryALTinterwordspacing
+Juneau, J., \emph{Nashorn and Scripting}.\hskip 1em plus 0.5em minus
+  0.4em\relax Berkeley, CA: Apress, 2017, pp. 529--551. [Online]. Available:
+  \url{https://doi.org/10.1007/978-1-4842-1976-8_18}
+\BIBentrySTDinterwordspacing
+
+\item[]
+\BIBentryALTinterwordspacing
+Kennedy, A. and Syme, D., ``Design and implementation of generics for the .net
+  common language runtime,'' \emph{SIGPLAN Not.}, vol.~36, no.~5, pp. 1--12,
+  May 2001. [Online]. Available: \url{http://doi.acm.org/10.1145/381694.378797}
+\BIBentrySTDinterwordspacing
+
+\item[]
+\BIBentryALTinterwordspacing
+Krishnamurthi, S., ``An introduction to scheme,'' \emph{Crossroads}, vol.~1,
+  no.~2, pp. 19--27, Dec. 1994. [Online]. Available:
+  \url{http://doi.acm.org/10.1145/197149.197166}
+\BIBentrySTDinterwordspacing
+
+\item[]
+\BIBentryALTinterwordspacing
+Mayer, P., Kirsch, M., and Le, M.~A., ``On multi-language software development,
+  cross-language links and accompanying tools: a survey of professional
+  software developers,'' \emph{Journal of Software Engineering Research and
+  Development}, vol.~5, no.~1, p.~1, Apr 2017. [Online]. Available:
+  \url{https://doi.org/10.1186/s40411-017-0035-z}
+\BIBentrySTDinterwordspacing
+
+\item[]
+\BIBentryALTinterwordspacing
+Singer, J., ``{JVM Versus CLR}: A comparative study,'' in \emph{Proceedings of
+  the 2Nd International Conference on Principles and Practice of Programming in
+  Java}, ser. PPPJ '03.\hskip 1em plus 0.5em minus 0.4em\relax New York, NY,
+  USA: Computer Science Press, Inc., 2003, pp. 167--169. [Online]. Available:
+  \url{http://dl.acm.org/citation.cfm?id=957289.957341}
+\BIBentrySTDinterwordspacing
+
+\item[]
+WaiLok, S. and Davison, A., ``Logicweb: Enhancing the web with logic
+  programming,'' \emph{The Journal of Logic Programming}, vol.~36, pp.
+  195--240, 1998.
+
+\end{thesisbib}

@@ -11,10 +11,10 @@ As processing power client side machines is increasing, client side programming 
 
 But, Currently, Java Script is the ubiquitous language that runs in the browser. Java Script is used to enhance user interactivity within web pages, and can change the way a web page looks and acts at any time, based on user input.
 
-In this paper we are going to address building multi language support for browsers, where more than one language can work at the same time and all these languages will interact together to render the web page. 
+In this paper we are going to address building multi language support for browsers, where more than one language can work in browser at the same time and all these languages will interact together to render the web page. 
 
 
-Chapter 2 discusses the background research done in the field of multi language environment. Chapter 3 discusses the Scheme environment and how it is implemented and how it is used to interact with browser. Chapter 4 the Lua environment and how it is implemented and how it is used to interact with browser. Chapter 5 describes the how application can be built using Scheme, Lua and Java Script working together in the same application. Finally, chapter 6 discusses areas of improvement and future work.
+This paper is structured as, Chapter 2 discusses the background research done in the field of multi language environment. Chapter 3 discusses the Scheme environment and how it is implemented and how it is used to interact with browser. Chapter 4 the Lua environment and how it is implemented and how it is used to interact with browser. Chapter 5 describes the how application can be built using Scheme, Lua and Java Script working together in the same application. Finally, chapter 6 discusses areas of improvement and future work.
 
 
 \section{Multi Language Browser Environment} 
@@ -26,8 +26,9 @@ Instead, Many different languages are used; out of these are some the general pu
 
 There are several benefits of having multi language support in browser, such as increase in productivity, benefit from multi disciplinary client side web pages development, and so on. Multi language environment also supports different languages to work together, so that we can get best out of both the world.
 
-But, currently browser does not have capability to execute other languages like Scheme, and Lua. For these project, we will built multi language environment in the browser by enabling browser to parse and interpret small subset of languages like Scheme, and Lua.
-We built multi language environment which is a collection web pages written in different languages like Scheme, Lua and with standard Java Script. These languages will work together on different or might be the same part of the web page, and will help to render the page. We will see how the syntax and interaction of these languages in the upcoming sections. 
+For this project, we are going to built multi language environment for languages like Scheme, Lua, and Java Script. But, currently browser does not have capability to execute other languages like Scheme, and Lua. For these project, we enable support for these languages to browser, by building our own parser and interpreter for small subset of languages like Scheme, and Lua using Java Script. 
+
+We built multi language environment which is a collection web pages written in different languages like Scheme, Lua and with standard Java Script. These languages will work together on different or might be the same part of the web page, and will help to render the page. We will see syntax and interaction of these languages in the upcoming sections. 
 
 
 \subsection{Scheme}
@@ -151,7 +152,6 @@ There are variety of possible approaches to built multi language support for the
   
   All the interaction between languages is managed by browser plugin. Advantage of having this approach is programmer does not have to worry about adding all the libraries necessary for multi language support, into the web page. Disadvantages of having this approach is, it makes interaction between these languages little complex and also, plugin needs to have permission to read scripts from the web page.
   
-
 	
 \subsection{JS Library}
 
@@ -184,7 +184,7 @@ It was challenging to decide how the language syntax will look like for doing DO
 
 \subsection{Interaction between languages}
 
-
+?Section to be added.
 
 
 \section{Results}
