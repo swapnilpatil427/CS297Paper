@@ -19,6 +19,11 @@
 \fi
 #2}}
 
+\bibitem{clrarchitecure}
+``{Architecture of .NET},''
+  \url{http://visualbasic-dotnet-hindi.blogspot.com/2012/07/architecture-of-net.html},
+  accessed: 2017-11-09.
+
 \bibitem{LoginWeb}
 S.~WaiLok and A.~Davison, ``Logicweb: Enhancing the web with logic
   programming,'' \emph{The Journal of Logic Programming}, vol.~36, pp.
@@ -40,7 +45,7 @@ R.~K. Dybvig, \emph{The Scheme Programming Language: ANSI Scheme},
 
 \bibitem{schemeieee}
 ``{IEEE Standard for the Scheme Programming Language},'' \emph{IEEE Std
-  1178-1990}.
+  1178-1990}, 1991.
 
 \bibitem{Krishnamurthi:1994:IS:197149.197166}
 \BIBentryALTinterwordspacing
@@ -52,6 +57,13 @@ S.~Krishnamurthi, ``An introduction to scheme,'' \emph{Crossroads}, vol.~1,
 \bibitem{SchemeLanguage}
 ``{Scheme Programming Language} description,''
   \url{https://www.scheme.com/tspl3/intro.html}, accessed: 2017-11-28.
+
+\bibitem{spe96}
+W.~C. Roberto~Ierusalimschy, Luiz Henrique de~Figueiredo, ``Lua: an extensible
+  extension language,'' \emph{Software: Practice & Experience}, 1996.
+
+\bibitem{luaprojects}
+``{Lua projects.}'' \url{http://www.lua.org/uses.html}, accessed: 2017-11-09.
 
 \bibitem{Kennedy:2001:DIG:381694.378797}
 \BIBentryALTinterwordspacing
@@ -90,5 +102,14 @@ J.~Juneau, \emph{Nashorn and Scripting}.\hskip 1em plus 0.5em minus 0.4em\relax
 ``{The Java Scripting API},''
   \url{https://docs.oracle.com/javase/8/docs/technotes/guides/scripting/prog_guide/api.html},
   accessed: 2017-11-29.
+
+\bibitem{luavm}
+``{The Lua VM on the Web},''
+  \url{https://daurnimator.github.io/lua.vm.js/lua.vm.js.html}, accessed:
+  2017-11-09.
+
+\bibitem{emscripten}
+``{Emscripten},'' \url{http://kripken.github.io/emscripten-site/}, accessed:
+  2017-11-09.
 
 \end{thebibliography}

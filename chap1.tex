@@ -31,7 +31,7 @@ For this project, we are going to built multi language environment for languages
 We built multi language environment which is a collection web pages written in different languages like Scheme, Lua and with standard Java Script. These languages will work together on different or might be the same part of the web page, and will help to render the page. We will see syntax and interaction of these languages in the upcoming sections. 
 
 
-\subsection{Scheme}
+\subsection{Scheme Overview}
 
 Scheme is general purpose simple but powerful programming language.
 It is conceptually clean and very easy to learn programming languages. Full mastery of the language requires careful practice and study. Scheme is widely used in computation research and education, it also also used in industrial applications like user interface designs, web navigators to virtual reality engines \cite{Dybvig:1996:SPL:525334}. Scheme is both formally and informally standardized. THe standard for scheme programming language \cite{schemeieee}.
@@ -54,47 +54,44 @@ Scheme programs is combination of variables,objects , keywords, structured forms
 
 In C or most of languages a procedure call to foo with arguments baz, and bar looks is written like: 
 
-\begin{center}
+\begin{lstlisting}[frame=single]  
 foo(baz, bar);
-\end{center}
+\end{lstlisting}
 
 But, In Scheme its written as: 
 
-\begin{center}
-	(foo baz bar)
-\end{center}
+\begin{lstlisting}[frame=single]  
+(foo baz bar)
+\end{lstlisting}
 
 We can define variable in Scheme using define :
 
-\begin{center}
-	(define myvariable 5)
-\end{center}
+\begin{lstlisting}[frame=single]  
+(define myvariable 5)
+\end{lstlisting}
 
 This will tell scheme to allocate variable myvariable and assign value 5 to it. In Scheme you always have to initialise variable value. 
 
 We can also define procedure using "define"
 
-\begin{center}
-	(define (two-times x)
-	
-	(* x x))
-\end{center}
+\begin{lstlisting}[frame=single]  
+(define (two-times x)
+	(* x x))
+\end{lstlisting}
+
 
 Above, statement created a procedure with name two-times with one argument. 
 
 Just, like in any other languages if-else in scheme can be implemented as follows:
 
-\begin{center}
-	
-	(define (min a b)
-	
-	(if ($<$ a b)
-	
-		a
-		
+
+
+\begin{lstlisting}[frame=single]  
+(define (min a b)
+	(if (< a b)
+		a	
 		b))
-	
-\end{center}
+\end{lstlisting}
 
 It will create procedure called "min" with two arguments a and b, and it will return minimum variable by comparing variables in if statements. if a is less than b then return a, otherwise return b.
 
@@ -102,19 +99,34 @@ Scheme provides special procedure called lambda. Lambda does not give name to th
 
 We can use lambda in define statement, to assign it to variable as shown below:
 
-\begin{center}
+\begin{lstlisting}[frame=single]  
 	(define double (lambda (x)
-	
 	   (+ x x )))
  
-\end{center}
+\end{lstlisting}
 
 
 Here, we are creating procedure with one argument, and returning the pointer to it and we are storing that pointer into double variable using define.	 
 
-\subsection{Lua}
+\subsection{Lua Overview}
 
-// Lua description will go here
+This section gives overview of lua as a language and introduce basic lua concepts. 
+
+Lua is designed to be small, simple, fast, and portable language which can be easily embedded into other applications \cite{spe96}. Lua is now popular among various types of application development such as, robotics, web development, image processing, distributed systems , extensible text editors, and more \cite{luaprojects}. Lua is one of the most popular scripting language for game development.
+
+It is a procedural language with syntax like pascal. It has control structures likes (if , while, etc.). function can have parameters, and local variables. Code below shows, implementation of factorial program in Lua.
+
+\begin{lstlisting}[frame=single]  
+function factorial (n)
+  local i = 1
+  local r = 1
+  while i <-n do 
+    r = r * i
+    i = i + 1
+  end
+  return r
+end
+\end{lstlisting}
 
 \section{Goal}
 

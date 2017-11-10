@@ -12,7 +12,7 @@ In these section we will take a look into Java virtual machine component called 
 	\begin{center}
 		\includegraphics[width=\linewidth]{./images/clrArchitecture.png}
 	\end{center}
-	\caption{Common Language Runtime : Architecture}
+	\caption{Common Language Runtime : Architecture \cite{clrarchitecure}}
 	\label{fig:clrarchitecture}
 \end{figure}
 
@@ -74,43 +74,64 @@ After, we have Nashorn engine instance, we can use to embed scripts in our Java 
 
 Following code shows example which can evaluate "Hello world !" using Nashorn.
 
-\begin{figure}[ht]
-	\begin{center}
-		\includegraphics[width=\linewidth]{./images/nashornexposingJavaObject.png}
-	\end{center}
-	\caption{Nashorn : Evaluating a Statement}
-	\label{fig:nashornexposingjavaobject}
-\end{figure}
 
+\begin{lstlisting}[frame=single]
+import javax.script.*;
 
-In the example shown in Figure \ref{fig:nashornexposingjavaobject}, script engine calls the eval() method and executes javaScript string passes as an argument to eval() function. 
+public class EvaluateScript {
+ public static void main(String[] args) throws Exception {
+  ScriptEngineManager manager = new ScriptEngineManager();
+  ScriptEngine engine = manager.getEngineByName("nashorn");
+  
+  // evaluate JavaScript code
+  engine.eval("print('Hello, World')");
+ }
+}
+\end{lstlisting}
+
+In the example shown above, script engine calls the eval() method and executes javaScript string passes as an argument to eval() function. 
 
 
 \textbf{Example 2 - Evaluating a Script File}
 
+\begin{lstlisting}[frame=single]
+import javax.script.*;
 
+public class EvalFile {
+ public static void main(String[] args) throws Exception {
+  ScriptEngineManager manager = new ScriptEngineManager();
+  ScriptEngine engine = manager.getEngineByName("nashorn");
+  
+  engine.eval(new java.io.FileReader("script.js"));
+ }
+}
+\end{lstlisting}
 
-\begin{figure}[ht]
-	\begin{center}
-		\includegraphics[width=\linewidth]{./images/nashornPrintHello.png}
-	\end{center}
-	\caption{Nashorn : Evaluating a Script File}
-	\label{fig:nashornPrintHello}
-\end{figure}
-
-In the example shown in Figure \ref{fig:nashornexposingjavaobject}, eval() method uses fileReader that reads Java Script file and evaluates it.
+In the example shown in above, eval() method uses fileReader that reads Java Script file and evaluates it.
 
 
 \textbf{Example 3 - Exposing a Java Object as a Global Variable}
 
+\begin{lstlisting}[frame=single]
+import javax.script.*;
+import java.io.*;
 
+public class ScriptVars {
+ public static void main(String[] args) throws Exception {
+  ScriptEngineManager manager = new ScriptEngineManager();
+  ScriptEngine engine = manager.getEngineByName("nashorn");
+  
+  // create File object
+  File f = new File("test.txt");
+  
+  // expose File object as a global variable to the engine
+  engine.put("file", f);
+  
+  // evaluate JavaScript code and access the variable
+  engine.eval("print(file.getAbsolutePath())");
+ }
+}
 
-\begin{figure}[ht]
-	\begin{center}
-		\includegraphics[width=\linewidth]{./images/nashronScriptFile.png}
-	\end{center}
-	\caption{Nashorn : Exposing a Java Object as a Global Variable}
-	\label{fig:nashronScriptFile}
-\end{figure}
+\end{lstlisting}
 
-In the example shown in Figure \ref{fig:nashornexposingjavaobject}, file object created in Java is exposed to the nashorn engine as a global variable as the name file using put() method. Eval() function then calls javascript code which access this variable as global variable, and calls getAbsolutePath() method.
+In the example shown above, file object created in Java is exposed to the nashorn engine as a global variable as the name file using put() method. Eval() function then calls javascript code which access this variable as global variable, and calls getAbsolutePath() method.

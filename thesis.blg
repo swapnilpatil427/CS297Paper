@@ -7,6 +7,7 @@ A level-1 auxiliary file: chap3.aux
 A level-1 auxiliary file: chap4.aux
 A level-1 auxiliary file: chap5.aux
 A level-1 auxiliary file: chap6.aux
+A level-1 auxiliary file: chap7.aux
 The style file: uriref.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -14,15 +15,6 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: references.bib
-Repeated entry---line 166 of file references.bib
- : @book{Gough:2001:CNC:559569
- :                            ,
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 218 of file references.bib
- :      
- :      year={1991}
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
  
 -- University of Rhode Island references, version 1.1 (2005/07/12),
 --  based on IEEEtran.bst version 1.11 (2003/04/02) by Michael Shell.
@@ -30,48 +22,47 @@ I'm skipping whatever remains of this entry
 -- See the manual "IEEEtran_bst_HOWTO.pdf" for usage information,
 --  available at http://www.ele.uri.edu/info/thesis/IEEEtran_bst_HOWTO.pdf
 Warning--empty author in schemeieee
-Warning--empty year in schemeieee
 
 Done.
-You've used 12 entries,
+You've used 17 entries,
             3985 wiz_defined-function locations,
-            885 strings with 9371 characters,
-and the built_in function-call counts, 6840 in all, are:
-= -- 548
-> -- 97
+            904 strings with 9879 characters,
+and the built_in function-call counts, 8431 in all, are:
+= -- 670
+> -- 105
 < -- 50
-+ -- 55
-- -- 13
-* -- 328
-:= -- 1118
-add.period$ -- 25
-call.type$ -- 12
-change.case$ -- 13
++ -- 61
+- -- 14
+* -- 374
+:= -- 1392
+add.period$ -- 35
+call.type$ -- 17
+change.case$ -- 22
 chr.to.int$ -- 111
-cite$ -- 14
-duplicate$ -- 525
-empty$ -- 608
-format.name$ -- 17
-if$ -- 1538
+cite$ -- 18
+duplicate$ -- 683
+empty$ -- 784
+format.name$ -- 18
+if$ -- 1890
 int.to.chr$ -- 0
-int.to.str$ -- 12
-missing$ -- 87
-newline$ -- 67
-num.names$ -- 8
-pop$ -- 212
+int.to.str$ -- 17
+missing$ -- 120
+newline$ -- 82
+num.names$ -- 9
+pop$ -- 311
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 529
+skip$ -- 662
 stack$ -- 0
-substring$ -- 261
-swap$ -- 386
+substring$ -- 274
+swap$ -- 464
 text.length$ -- 13
 text.prefix$ -- 0
 top$ -- 8
 type$ -- 0
-warning$ -- 2
-while$ -- 29
-width$ -- 14
-write$ -- 137
-(There were 2 error messages)
+warning$ -- 1
+while$ -- 30
+width$ -- 19
+write$ -- 174
+(There was 1 warning)
