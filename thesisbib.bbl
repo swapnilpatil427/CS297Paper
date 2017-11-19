@@ -20,13 +20,28 @@
 #2}}
 
 \item[]
+``{Architecture of .NET},''
+  \url{http://visualbasic-dotnet-hindi.blogspot.com/2012/07/architecture-of-net.html},
+  accessed: 2017-11-09.
+
+\item[]
 ``{Common Language Runtime (CLR)},''
   \url{https://docs.microsoft.com/en-us/dotnet/standard/clr}, accessed:
   2017-11-29.
 
 \item[]
-``{IEEE Standard for the Scheme Programming Language},'' \emph{IEEE Std
-  1178-1990}.
+``{Emscripten},'' \url{http://kripken.github.io/emscripten-site/}, accessed:
+  2017-11-09.
+
+\item[]
+``{Google Maps API},'' \url{https://developers.google.com/maps/}, accessed:
+  2017-11-09.
+
+\item[]
+``{Jqeury},'' \url{https://jquery.com/}, accessed: 2017-11-09.
+
+\item[]
+``{Lua projects.}'' \url{http://www.lua.org/uses.html}, accessed: 2017-11-09.
 
 \item[]
 ``{Scheme Programming Language} description,''
@@ -36,6 +51,15 @@
 ``{The Java Scripting API},''
   \url{https://docs.oracle.com/javase/8/docs/technotes/guides/scripting/prog_guide/api.html},
   accessed: 2017-11-29.
+
+\item[]
+``{The Lua VM on the Web},''
+  \url{https://daurnimator.github.io/lua.vm.js/lua.vm.js.html}, accessed:
+  2017-11-09.
+
+\item[]
+``{IEEE Standard for the Scheme Programming Language},'' \emph{IEEE Std
+  1178-1990}, 1991.
 
 \item[]
 Dybvig, R.~K., \emph{The Scheme Programming Language: ANSI Scheme},
@@ -76,6 +100,10 @@ Mayer, P., Kirsch, M., and Le, M.~A., ``On multi-language software development,
   Development}, vol.~5, no.~1, p.~1, Apr 2017. [Online]. Available:
   \url{https://doi.org/10.1186/s40411-017-0035-z}
 \BIBentrySTDinterwordspacing
+
+\item[]
+Roberto~Ierusalimschy, Luiz Henrique de~Figueiredo, W.~C., ``Lua: an extensible
+  extension language,'' \emph{Software: Practice & Experience}, 1996.
 
 \item[]
 \BIBentryALTinterwordspacing

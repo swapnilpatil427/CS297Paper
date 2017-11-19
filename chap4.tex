@@ -1,4 +1,4 @@
-\chapter{Lua Environment}
+\chapter{Lua Environment} \label{lua}
 
 Currently, web browser cannot execute lua code, as lua environment is not readily available in browser. So, to handle execution of lua into the browser, javascript implementation of lua interpreter is necessary. 
 
@@ -19,7 +19,7 @@ The Lua VM can be added on to the web page, by referencing lua.vm.js script on t
 </html>
 \end{lstlisting}
 
-Once, instance of lua VM is added on the web page, we can start writting our lua code in the web page, by including all the lua code into text/lua script as shown below, 
+Once, instance of Lua VM is added on the web page, we can start writtng our lua code in the web page, by including all the lua code into text/lua script as shown below, 
 
 \begin{lstlisting}[frame=single]  
 <script type="text/lua">
@@ -55,7 +55,7 @@ Lua in browser.
 
 \textbf{Output}
 
-Executing above, code into browser generates the output similar to calling alert function from Java Script, as shown in figure \ref{fig:luaalert}, 
+Executing above, code into browser generates the output similar to calling alert function from DOM, as shown in figure \ref{fig:luaalert}, 
 
 \begin{figure}[H]
 	\begin{center}
@@ -108,11 +108,11 @@ Executing above code in the browser, creates function called "printName" and ass
 
 \section{Approches}
 
-In this project, we implemented two ways to include lua.vm into the web page, to help browser undderstand lua code on the page.
+Similar to scheme environment, we implemented two ways to include lua.vm into the web page, to help browser undderstand lua code on the page.
 
 
 \subsection{Browser Plugin } 
-For this approach, browser plugin (supported by firefox, and chrome) will push the instance of lua VM into every newly opened browser tab. In this way, user don't have to worry about adding the library script on the page. lua VM library will then interpret all the code enclosed within "type=text/lua" script.
+For this approach, browser plugin (supported by firefox, and chrome) will push the instance of lua VM into every newly opened browser tab. In this way, user don't have to worry about adding the library script on the page. Lua VM library will then interpret all the code enclosed within "type=text/lua" script.
 
 In case of using browser plugin,our example code to render alert on browser will look like, 
 

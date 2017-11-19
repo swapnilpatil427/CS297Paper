@@ -24,45 +24,45 @@ Database file #1: references.bib
 Warning--empty author in schemeieee
 
 Done.
-You've used 17 entries,
+You've used 30 entries,
             3985 wiz_defined-function locations,
-            904 strings with 9879 characters,
-and the built_in function-call counts, 8431 in all, are:
-= -- 670
-> -- 105
-< -- 50
-+ -- 61
-- -- 14
-* -- 374
-:= -- 1392
-add.period$ -- 35
-call.type$ -- 17
-change.case$ -- 22
-chr.to.int$ -- 111
-cite$ -- 18
-duplicate$ -- 683
-empty$ -- 784
-format.name$ -- 18
-if$ -- 1890
+            972 strings with 11981 characters,
+and the built_in function-call counts, 15257 in all, are:
+= -- 1158
+> -- 272
+< -- 85
++ -- 143
+- -- 46
+* -- 677
+:= -- 2439
+add.period$ -- 62
+call.type$ -- 30
+change.case$ -- 40
+chr.to.int$ -- 195
+cite$ -- 31
+duplicate$ -- 1236
+empty$ -- 1436
+format.name$ -- 56
+if$ -- 3448
 int.to.chr$ -- 0
-int.to.str$ -- 17
-missing$ -- 120
-newline$ -- 82
-num.names$ -- 9
-pop$ -- 311
+int.to.str$ -- 30
+missing$ -- 233
+newline$ -- 127
+num.names$ -- 17
+pop$ -- 633
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 662
+skip$ -- 1182
 stack$ -- 0
-substring$ -- 274
-swap$ -- 464
-text.length$ -- 13
+substring$ -- 447
+swap$ -- 831
+text.length$ -- 20
 text.prefix$ -- 0
 top$ -- 8
 type$ -- 0
 warning$ -- 1
-while$ -- 30
-width$ -- 19
-write$ -- 174
+while$ -- 53
+width$ -- 32
+write$ -- 286
 (There was 1 warning)

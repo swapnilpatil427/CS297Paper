@@ -81,12 +81,12 @@
 %
 % ***** first committee member's name
 %
-\def\firstCommitteeMember{Space Ghost}
+\def\firstCommitteeMember{Dr. Katerina Potika}
 \def\firstCommitteeMemberAffiliation{Department of Computer Science}
-%
+%z	
 % ***** second committee member's name
 %
-\def\secondCommitteeMember{Count Dracula}
+\def\secondCommitteeMember{Dr. Robert Chun}
 \def\secondCommitteeMemberAffiliation{Department of Mathematics}
 
 \setcounter{secnumdepth}{3}
@@ -98,7 +98,7 @@
 
 
 \begin{document}
-
+\nocite{*}
 %
 % ***** title
 %
@@ -160,8 +160,10 @@
 %\input bib.tex
 % Do not use bibtex if you plan to use references for the URI-derived thesis template.
 % Instead, you should reference the file "uribibtex.bat" instead of the standard bibtex
+
 \bibliographystyle{ieeetr}
-\reffile{references} % To build the references, double click the file "genbib.bat" in the "build" subdirectory
+\bibliography{references.bib} % To build the references, double click the file "genbib.bat" in the "build" subdirectory
+
 
 %
 % ***** appendices in appA.tex, appB.tex, ...

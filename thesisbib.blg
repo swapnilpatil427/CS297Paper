@@ -8,68 +8,64 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: references.bib
-Repeated entry---line 166 of file references.bib
- : @book{Gough:2001:CNC:559569
- :                            ,
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 218 of file references.bib
- :      
- :      year={1991}
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
  
 -- University of Rhode Island bibliography, version 1.1 (2005/07/12),
 --  based on IEEEtranS.bst version 1.11 (2003/04/02) by Michael Shell.
 --  http://www.ele.uri.edu/info/thesis/uritex/uribib.bst
 -- See the manual "IEEEtran_bst_HOWTO.pdf" for usage information,
 --  available at http://www.ele.uri.edu/info/thesis/IEEEtran_bst_HOWTO.pdf
+Warning--to sort, need author, organization, or key in clrarchitecure
 Warning--to sort, need author or key in schemeieee
 Warning--to sort, need author, organization, or key in SchemeLanguage
+Warning--to sort, need author, organization, or key in luaprojects
 Warning--to sort, need author, organization, or key in commonlanguageruntime
 Warning--to sort, need author, organization, or key in javascripting
+Warning--to sort, need author, organization, or key in luavm
+Warning--to sort, need author, organization, or key in emscripten
+Warning--to sort, need author, organization, or key in googlemapsapi
+Warning--to sort, need author, organization, or key in jquery
 Warning--empty author in schemeieee
-Warning--empty year in schemeieee
 
 Done.
-You've used 12 entries,
+You've used 19 entries,
             4417 wiz_defined-function locations,
-            952 strings with 9973 characters,
-and the built_in function-call counts, 7866 in all, are:
-= -- 696
-> -- 131
+            976 strings with 10582 characters,
+and the built_in function-call counts, 10573 in all, are:
+= -- 942
+> -- 144
 < -- 50
-+ -- 70
-- -- 26
-* -- 398
-:= -- 1285
-add.period$ -- 25
-call.type$ -- 12
-change.case$ -- 50
++ -- 79
+- -- 28
+* -- 497
+:= -- 1720
+add.period$ -- 39
+call.type$ -- 19
+change.case$ -- 78
 chr.to.int$ -- 111
-cite$ -- 6
-duplicate$ -- 549
-empty$ -- 651
-format.name$ -- 30
-if$ -- 1742
+cite$ -- 11
+duplicate$ -- 783
+empty$ -- 930
+format.name$ -- 32
+if$ -- 2344
 int.to.chr$ -- 0
-int.to.str$ -- 12
-missing$ -- 87
-newline$ -- 67
-num.names$ -- 16
-pop$ -- 236
+int.to.str$ -- 19
+missing$ -- 134
+newline$ -- 88
+num.names$ -- 18
+pop$ -- 397
 preamble$ -- 1
-purify$ -- 37
+purify$ -- 52
 quote$ -- 2
-skip$ -- 589
+skip$ -- 798
 stack$ -- 0
-substring$ -- 323
-swap$ -- 386
+substring$ -- 377
+swap$ -- 494
 text.length$ -- 13
 text.prefix$ -- 0
 top$ -- 8
-type$ -- 87
-warning$ -- 6
-while$ -- 37
-width$ -- 14
-write$ -- 113
-(There were 2 error messages)
+type$ -- 144
+warning$ -- 11
+while$ -- 39
+width$ -- 21
+write$ -- 150
+(There were 11 warnings)

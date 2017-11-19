@@ -1,111 +1,121 @@
-\chapter{Scheme Environment}
+\chapter{Embedding Scheme in a browser} \label{scheme}
 
-Scheme development environment is foundation for number of fascinating applications in education and research. But, executing scheme programs directly into browser is not possible yet, scheme environment is not readily available in browser. In such cases, Java Script being de-facto of browser based applications, a Java Script based, and browser native implementation Scheme environment is desirable.
+The Scheme development environment is the foundation for a number of fascinating applications in education and research. But, executing Scheme program directly into the browser is not possible yet, since Scheme is not readily available in the browser. In such cases, JavaScript being de-facto of browser based applications, a JavaScript based and browser native implementation Scheme is desirable.
 
-For this project, we created scheme environment in browser using Java Script. Our scheme interpreter follows R5RS Scheme standards. It provides supports for some of the core language features with additional feature of interacting with DOM to enable scheme to interact with browser.  The core of our environment is inspired by Nashorn \cite{javascripting}. 
+For this project, we created Scheme in browser using JavaScript. It provides supports for some of the core language features with additional feature of interacting with DOM to enable scheme to interact with browser.  The core of our environment is inspired by the scripting API \cite{javascripting} by taking the same approach to interact with other languages. 
 
 \begin{figure}[ht]
 	\begin{center}
 		\includegraphics[width=\linewidth]{./images/SchemeEnvironmentusingJavaScript.png}
 	\end{center}
-	\caption{Scheme Environment using Java Script : Architecture}
+	\caption{Scheme Environment using JavaScript : Architecture}
 	\label{fig:SchemeEnvironmentusingJavaScript}
 \end{figure}
 
 
-As shown in figure \ref{fig:SchemeEnvironmentusingJavaScript}. Our enviroment takes web page embedded scheme script as input, and then depending on approach, it will be parse, and then interpret the input using Java Script. This interpreted  scheme code then interacts with browser, to help render web pages with more dynamic behaviour. 
+As shown in Figure \ref{fig:SchemeEnvironmentusingJavaScript}, Our Scheme library takes web page's embedded Scheme scripts as input. Our plugin will parse and then interpret the input scripts using JavaScript. This interpreted Scheme code then interacts with the browser, to help render web pages with more dynamic behaviour. 
 
 \section{Interpreter} 
-As we discussed in previous chapters, browsers does not have readily available support for scheme. To help enable browser to understand code written in scheme, we built scheme interpreter written in Java Script. Using our scheme interpreter, browser will understand program written in Scheme.
+As discussed in previous chapters, browsers does not have readily available support for the Scheme. To help enable the browser to understand code written in the Scheme, we built a Scheme interpreter written in the JavaScript. Using our Scheme interpreter, browser will understand program written in the Scheme.
 
-Scheme code will be embedded into web page using script tag as shown in the example below, 
+The Scheme code will be embedded into the web page using script tag as shown in the code Example \ref{fig:schemescript}, 
 
-\begin{lstlisting}[frame=single]  
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8" />
-<title>Scheme example</title>
-</head>
-<body>
-</body>
-<script type="text/scheme">
+\begin{figure}[h]
+	\begin{lstlisting} 
+	<script type="text/scheme">
 	(
-		(define square
-			(lambda (n) 
-				(console-log (* n n)) 
-			)
-		)
-		
-		(square 6)
+	 (define square
+	  (lambda (n) 
+	   (console-log (* n n)
+	  ) 
+	 )
 	)
+		
+	(square 6)
+	)
+	</script>
+	\end{lstlisting}
+	\caption{Scheme script example}
+	\label{fig:schemescript}
+\end{figure}
 
-</script>
 
-</script>
 
-</html>
-\end{lstlisting}
+As shown in the code snippet in Figure \ref{fig:schemescript}, Scheme code can be added inside the webpage using "$<$script type="text/scheme" $>$ $<$/script$>$" script tag. Our interpreter supports multiple number of Scheme script tags.
 
-As shown in the code snippet above, scheme code can be added inside webpage, by writing it between "$<$script type="text/scheme" $>$ $<$/script$>$" tags. Our interpreter supports multiple number of scheme script tags.
+In order for the browser to understand the Scheme, code snippet written inside Scheme script tags, is parsed and interpreted by our browser plugin. In case, the browser plugin is unavailable then we need to include library reference of interpreter on the page, as shown in the example below, 
 
-In order for browser to understand Scheme, Code snippet written inside this scheme script tags, is parsed and interpreted by our library. For JS library approach, we need to include library reference of interpreter on the page, as shown in example below, 
-
-\begin{lstlisting}[frame=single]  
+\begin{lstlisting}
 	<script src="simple-scheme-interpreter.js">
 \end{lstlisting}
 
-For browser plugin approach this script file is added by browser plugin, so we don't have to worry about adding it in the web page.
+If the browser plugin is available, then this script file is added by the browser plugin, so we don't have to worry about adding it in the web page.
 
-Interpreter consists of two parts discussed in next sections.
+The interpreter consists of two parts:
 
 \subsection{Parser}
 
-After, code snippets from script tags is read, first thing our library do is to parse the input code and get the Abstract Syntax Tree (AST), which we can then use for interpretation. 
+After, code snippets from script tags is read, first thing our library do is to parse the input code using PEG.JS and get the Abstract Syntax Tree (AST). The interpreter, then uses this AST to interpret the code.
 
 \subsubsection{PEG.js}
 
-To create, parser for scheme, we used PEG.js library. PEG.js is simple parser written in Java Script, We can use to create parsers for complex data, and computer languages. PEG.js grammar used to parse scheme code is shown in code snippet below,
+We used a PEG.js library to create a parser for the Scheme \cite{pegjs}. PEG.js is simple a parser written in the JavaScript. We can use it to create parsers for complex data, and computer languages. A sample PEG.js grammar used to parse the Scheme code is shown in the code example \ref{fig:schemepeg},
 
-\begin{lstlisting}[frame=single]  
-var parser = PEG.buildParser(
-' start = multiexpression;\
-validchar = [a-zA-Z_?!+\\-=@#$%^&*/.];\
-spaces = \" \"*;\
-newline = [\\n]*;\
-digit = [0-9];\
-atom =    spaces newline chars:validchar+ spaces newline   { return chars.join(\"\"); }\
-/ spaces newline numbers:digit+ spaces newline     { return parseInt(numbers.join(\"\")); };\
-list =    spaces newline \"(\" spaces newline expressionss:multiexpression+ newline spaces\")\"  spaces newline { return expressionss; };\
-expressions = spaces newline  lists:list+ newline spaces { return lists };\
-multiexpression = atom / expressions ;');
+
+\begin{figure}[h]
+	\begin{lstlisting}  
+
+	var parser = PEG.buildParser( 
+	' start = multiexpression;\
+	validchar = [a-zA-Z_?!+\\-=@#$%^&*/.];\
+	spaces = \`` \''*;\
+	newline = [\\n]*;\
+	digit = [0-9];\
+	atom =    spaces newline chars:validchar+ spaces 
+	    newline   { return chars.join(\``\''); }\
+	    / spaces newline numbers:digit+ spaces newline     
+        { return parseInt(numbers.join(\``\'')); };\
+    
+	list = spaces newline \``(\'' spaces newline 
+	   expressionss:multiexpression+ newline spaces\``)\''
+	   spaces newline { return expressionss; };\
+	   expressions = spaces newline 
+	   lists:list+ newline spaces { return lists };\
+	   multiexpression = atom / expressions ;');
+	\end{lstlisting}
+	\caption{Scheme PEG.js parser}
+	\label{fig:schemepeg}
+\end{figure}
+
+Using the grammar shown in Figure \ref{fig:schemepeg}, Scheme code is parsed into AST using a following statement.
+
+\begin{lstlisting}
+	var PegAST= parser.parse(s);
 \end{lstlisting}
 
-Using above grammar, scheme code is parsed into AST using following statement,
 
-\begin{lstlisting}[frame=single]  
- var PegAST= parser.parse(s);
-\end{lstlisting}
 
 
 \subsection{Interpreter}
 
-AST generated by the browser is then interpreted by our interpreter written in Java Script as shown in code snippet below.
+AST generated by the parser is interpreted by our interpreter written in the JavaScript, as shown in the code example below,
 
-\begin{lstlisting}[frame=single]  
-var pegRet = schemeInterpreter.interpret(PegAST);
+
+\begin{lstlisting}
+	var pegRet = schemeInterpreter.interpret(PegAST);
 \end{lstlisting}
 
-Interpreted output is Java Script code which browser understands.
+
+The interpreted output is either DOM event or JavaScript code which the browser understands.
 
 \section{Scheme for Browser} 
 
-Our implementation scheme used R5RS standard, variable are  blocked scoped in the program. 
+Following the R5RS standard \cite{Adams:1998:RRA:290229.290234}, variable are  blocked scoped in the program. 
 
 Blocks can be created with let, or define expressions, like so:
 
 
-\begin{lstlisting}[frame=single]  
+\begin{lstlisting}
 	(let ((x 10)
 		(y 20))
 	
@@ -113,12 +123,9 @@ Blocks can be created with let, or define expressions, like so:
 \end{lstlisting}
 
 
-In the example, shown above, variable x, and y are blocked scoped, both x and y are available to function foo.
+In the example shown above, variable x and y are blocked scoped. Both x and y are available to function foo.
 
-Like universal scheme, our implementation of scheme supports following features- 
-
-
-
+Like the universal Scheme, our implementation of the Scheme supports following features:
 \begin{itemize}
 	\item {\textbf{Basic Types}}
 	\begin{itemize}
@@ -147,8 +154,12 @@ Like universal scheme, our implementation of scheme supports following features-
 	\end{itemize}
 \end{itemize}
 
-It also, provides special language syntax to interact with Browser's DOM. 
-This is only available for browser.
+It also, provides special language syntax to interact with the browser's DOM. We chose to include basic, most used browser functions for our Scheme DOM API. This is only available for browser. 
+
+\begin{itemize}[label={}]
+	\item First.
+	\item Second.
+\end{itemize}
 
 \begin{itemize}
 	\item {\textbf{Browser  Functions}}
@@ -156,15 +167,15 @@ This is only available for browser.
 		\item {Dialog}
 			\begin{itemize}
 				\item {(alert msg)}
-					\begin{itemize}
-						\item {$=$ window.alert}
-					\end{itemize}
+				   \begin{itemize}[label={}]
+				   	\item  Similar to, ``window.alert" function.
+				   \end{itemize}
 			\end{itemize}
 		
 			\begin{itemize}
-				\item {(confirm msg) =$>$ boolean}
-				\begin{itemize}
-					\item {$=$ window.confirmt}
+				\item {(confirm msg)}
+				\begin{itemize}[label={}]
+					\item  Similar to, ``window.confirm" function. It returns a boolean value.
 				\end{itemize}
 			\end{itemize}
 	\end{itemize}
@@ -172,14 +183,20 @@ This is only available for browser.
 	\begin{itemize}
 		\item {Event}
 		\begin{itemize}
-			\item {(add-handler! selector event proc) =$>$ js-handler}
+			\item {(add-handler! selector event proc)}
+            \begin{itemize}[label={}]
+            	\item  Attaches an event handler to the specified selector. It returns the handler function, which handles the event.
+            \end{itemize}
 		\end{itemize}
 		
 		\begin{itemize}
 			\item {(remove-handler! selector event js-handler)}
+			\begin{itemize}[label={}]
+				\item  Removes the attached event handler from the specified selector.
+			\end{itemize}
 			\begin{itemize}
-				\item {eg. (define h (add-handler! "$#$button1" "click" (lambda (ev) ...)))}
-				\item {eg. (remove-handler! "$#$button1" "click" h)}
+				\item {eg (define h (add-handler! "$#$button1" "click" (lambda (ev) ...)))}
+				\item {eg (remove-handler! "$#$button1" "click" h)}
 			\end{itemize}
 		\end{itemize}
 	\end{itemize}
@@ -188,96 +205,117 @@ This is only available for browser.
 		\item {Element}
 		\begin{itemize}
 			\item {(element-visible? elem)}
+				\begin{itemize}[label={}]
+					\item  Returns the visibility of the specified element.
+				\end{itemize}
 			\item {(element-toggle! elem)}
+			    \begin{itemize}[label={}]
+			    	\item  Toggles the visibility of the specified element.
+			    \end{itemize}
 			\item {(element-hide! elem)}
+			    \begin{itemize}[label={}]
+			    	\item  Hides the specified element.
+			    \end{itemize}
 			\item {(element-show! elem)}
+			    \begin{itemize}[label={}]
+			    	\item  Shows the specified element.
+			    \end{itemize}
 			\item {(element-remove! elem)}
+			    \begin{itemize}[label={}]
+			    	\item  Removes the specified element.
+			    \end{itemize}
 			\item {(element-update! elem html)}
+			    \begin{itemize}[label={}]
+			    	\item  Update the specified element with the provided html.
+			    \end{itemize}
 			\item {(element-replace! elem x)}
+			    \begin{itemize}[label={}]
+			    	\item  Replaces the specified element with provided value x.
+			    \end{itemize}
 			\item {(element-insert! elem x)}
+			    \begin{itemize}[label={}]
+			    	\item  Appends the specified element with provided value x.
+			    \end{itemize}
 			\item {(element-select elem)}
+			    \begin{itemize}[label={}]
+			    	\item  Returns the specified element.
+			    \end{itemize}
 		\end{itemize}
 	\end{itemize}
 \end{itemize}
 
-Apart, from providing DOM APIs for browser, our scheme interpreter also, provides, interface to some of the basic Java Script functions as shown below, 
+Apart, from providing DOM APIs for the browser, our Scheme interpreter supports, interface to some of the basic JavaScript functions as shown:
 
 
 \begin{itemize}
 	\item{\textbf{JavaScript language interface}}
 	\begin{itemize}
-		\item {(js-eval str) evaluate str as JavaScript code}
+		\item {(js-eval str)
+			\begin{itemize}[label={}]
+				\item  evaluate str as JavaScript code}
+			\end{itemize}
+			 
 	\end{itemize}
 
 	\begin{itemize}
 		\item Console
 		\begin{itemize}
-			\item {(console-debug obj1 ...) = console.debug}
 			\item {(console-log obj1 ...)}
-			\item {(console-info obj1 ...)}
+			    \begin{itemize}[label={}]
+			    	\item  Similar to, JavaScript's ``console.log", it logs events to the console.
+		        \end{itemize}
+			\item {(console-debug obj1 ...)}
+			    \begin{itemize}[label={}]
+			    	\item  Alias for ``console-log''
+			    \end{itemize}
 			\item {(console-error obj1 ...)}
+			    \begin{itemize}[label={}]
+			    	\item  Logs the error message.
+			    \end{itemize}
 		\end{itemize}
 \end{itemize}
 \end{itemize}
 
 
-\section{Approches}
+\section{Approach}
 
-Our project implements two approches to help browser able to understand scheme code written in web page.
+Our Scheme interpreter uses the browser plugin approach, to help the browser to understand the Scheme code on the web page.
 
 \subsection{Browser Plugin } 
-For this approach, browser plugin (supported by firefox, and chrome) will push the instance of PEG.js parser and our scheme interpreter into every newly opened browser tab. In this way, user don't have to worry about adding the library script on the page. Our library will then parse and interpret all the code enclosed within scheme script.
-
-\begin{lstlisting}[frame=single]  
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8" />
-<title>Scheme Alert example</title>
-</head>
-<body>
-</body>
-<script type="text/scheme">
-(alert "Hello World")
-</script>
-</script>
-</html>
-\end{lstlisting}
-
-As shown in the code snippet above, we don't need to add any external libraries into our webpage, to interpret scheme script. Browser plugin will take care of that.
-Executing above code in browser with our plugin installed, will alert user with "Hello World" as text.
+For this approach, the browser plugin (supported by Firefox, and Chrome) will push the instance of PEG.js parser and our Scheme interpreter into every newly opened browser tab. In this way, user don't have to worry about adding the library script on the page. Our library will then parse and interpret all the code enclosed within Scheme script.
 
 
-\subsection{JS Library}
-
-
-In this approach, scheme support is achieved in web pages by including scheme interpreter and parser libraries in web page itself. When web page will loaded into browser,  library will read code snippet inside scheme script and will interpret it, as shown in the example below, 
-
-
-\begin{lstlisting}[frame=single]  
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8" />
-<title>Scheme Alert example</title>
-</head>
-<body>
-</body>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pegjs/0.9.0/peg.js">
-</script>
-<script type="text/scheme">
+\begin{figure}[h]
+	\begin{lstlisting}  
+	<script type="text/scheme">
 	(alert "Hello World")
-</script>
-<script src="./simple-scheme-interpreter.js">
-</script>
-</html>
-\end{lstlisting}
-
-As shown in code snippet above,  instance of PEG.js and scheme-interpreter is embedded directly into the web page. Interpreter will then interpret "(alert "Hello World") and it will show an alert on the screen with "Hello World" as text.
-
+	(console-log "Hello World")
+	</script>
+	\end{lstlisting}
+	\caption{Scheme browser plugin example}
+	\label{fig:browserpluginscheme}
+\end{figure}
 
 
+As shown in the Figure \ref{fig:browserpluginscheme}, we don't need to add any external libraries into our web page. Browser plugin will take care of interpreting the Scheme scripts.After, executing the code in Figure \ref{fig:browserpluginscheme}, in the browser with our plugin installed will alert user with ``Hello World" as text.
+
+
+\subsubsection{JS Library}
+
+When the plugin is unavailable in the browser, the Scheme support is achieved in the web page by including Scheme interpreter and parser libraries in the web page itself. When the web page will loaded in the browser, libraries will read code snippet inside Scheme script and will interpret it, as shown in the Figure \ref{fig:browserwithoutpluginscheme}. 
+
+\begin{figure}[h]
+	\begin{lstlisting} 
+	<script src="./simple-scheme-interpreter.js"/> 
+	<script type="text/scheme">
+	(alert "Hello World")
+	(console-log "Hello World")
+	</script>
+	\end{lstlisting}
+	\caption{Scheme without browser plugin example}
+	\label{fig:browserwithoutpluginscheme}
+\end{figure}
 
 
 
+As shown in code snippet in the Figure \ref{fig:browserwithoutpluginscheme}, instance of PEG.js and Scheme interpreter is embedded directly in the web page. Interpreter will interpret "(alert "Hello World") and it will show an alert on the screen with ``Hello World" as text.

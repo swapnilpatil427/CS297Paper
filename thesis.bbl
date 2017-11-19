@@ -29,6 +29,13 @@ S.~WaiLok and A.~Davison, ``Logicweb: Enhancing the web with logic
   programming,'' \emph{The Journal of Logic Programming}, vol.~36, pp.
   195\textendash240, 1998.
 
+\bibitem{Hickey:2004:SWP:1028174.971423}
+\BIBentryALTinterwordspacing
+T.~J. Hickey, ``Scheme-based web programming as a basis for a cs0 curriculum,''
+  \emph{SIGCSE Bull.}, vol.~36, no.~1, pp. 353357, Mar. 2004. [Online].
+  Available: \url{http://doi.acm.org/10.1145/1028174.971423}
+\BIBentrySTDinterwordspacing
+
 \bibitem{Mayer2017}
 \BIBentryALTinterwordspacing
 P.~Mayer, M.~Kirsch, and M.~A. Le, ``On multi-language software development,
@@ -37,6 +44,23 @@ P.~Mayer, M.~Kirsch, and M.~A. Le, ``On multi-language software development,
   Development}, vol.~5, no.~1, p.~1, Apr 2017. [Online]. Available:
   \url{https://doi.org/10.1186/s40411-017-0035-z}
 \BIBentrySTDinterwordspacing
+
+\bibitem{Matthews:2007:OSM:1190216.1190220}
+\BIBentryALTinterwordspacing
+J.~Matthews and R.~B. Findler, ``Operational semantics for multi-language
+  programs,'' in \emph{Proceedings of the 34th Annual ACM SIGPLAN-SIGACT
+  Symposium on Principles of Programming Languages}, ser. POPL '07.\hskip 1em
+  plus 0.5em minus 0.4em\relax New York, NY, USA: ACM, 2007, pp. 310. [Online].
+  Available: \url{http://doi.acm.org/10.1145/1190216.1190220}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Dybvig:2009:SPL:1618542}
+R.~K. Dybvig, \emph{The Scheme Programming Language, 4th Edition},
+  4th~ed.\hskip 1em plus 0.5em minus 0.4em\relax The MIT Press, 2009.
+
+\bibitem{Ierusalimschy:2006:LRM:1215067}
+R.~Ierusalimschy, L.~H.~d. Figueiredo, and W.~Celes, \emph{Lua 5.1 Reference
+  Manual}.\hskip 1em plus 0.5em minus 0.4em\relax Lua.Org, 2006.
 
 \bibitem{Dybvig:1996:SPL:525334}
 R.~K. Dybvig, \emph{The Scheme Programming Language: ANSI Scheme},
@@ -82,6 +106,21 @@ J.~J. Gough and K.~J. Gough, \emph{Compiling for the .Net Common Language
   Runtime}.\hskip 1em plus 0.5em minus 0.4em\relax Upper Saddle River, NJ, USA:
   Prentice Hall PTR, 2001.
 
+\bibitem{Gosling:1996:JLS:560667}
+J.~Gosling, B.~Joy, and G.~L. Steele, \emph{The Java Language Specification},
+  1st~ed.\hskip 1em plus 0.5em minus 0.4em\relax Boston, MA, USA:
+  Addison-Wesley Longman Publishing Co., Inc., 1996.
+
+\bibitem{Lindholm:2014:JVM:2636992}
+T.~Lindholm, F.~Yellin, G.~Bracha, and A.~Buckley, \emph{The Java Virtual
+  Machine Specification, Java SE 8 Edition}, 1st~ed.\hskip 1em plus 0.5em minus
+  0.4em\relax Addison-Wesley Professional, 2014.
+
+\bibitem{clrspecification}
+E.~Meijer and J.~Miller., ``{Technical Overview of Common Language Runtime},''
+  \url{http://www.csc.lsu.edu/~gb/csc7700/Reading/CLR.pdf}, accessed:
+  2017-11-09.
+
 \bibitem{Singer:2003:JVC:957289.957341}
 \BIBentryALTinterwordspacing
 J.~Singer, ``{JVM Versus CLR}: A comparative study,'' in \emph{Proceedings of
@@ -98,10 +137,33 @@ J.~Juneau, \emph{Nashorn and Scripting}.\hskip 1em plus 0.5em minus 0.4em\relax
   \url{https://doi.org/10.1007/978-1-4842-1976-8_18}
 \BIBentrySTDinterwordspacing
 
+\bibitem{rhinojava}
+``{Rhino},''
+  \url{https://developer.mozilla.org/en-US/docs/Mozilla/Projects/Rhino},
+  accessed: 2017-11-09.
+
+\bibitem{nashornjava}
+``{Project Nashorn},'' \url{http://openjdk.java.net/projects/nashorn/},
+  accessed: 2017-11-09.
+
 \bibitem{javascripting}
 ``{The Java Scripting API},''
   \url{https://docs.oracle.com/javase/8/docs/technotes/guides/scripting/prog_guide/api.html},
   accessed: 2017-11-29.
+
+\bibitem{pegjs}
+``{PEG.js : Parser generator for JavaScript},'' \url{https://pegjs.org/},
+  accessed: 2017-11-09.
+
+\bibitem{Adams:1998:RRA:290229.290234}
+\BIBentryALTinterwordspacing
+N.~I. Adams, IV, D.~H. Bartley, G.~Brooks, R.~K. Dybvig, D.~P. Friedman,
+  R.~Halstead, C.~Hanson, C.~T. Haynes, E.~Kohlbecker, D.~Oxley, K.~M. Pitman,
+  G.~J. Rozas, G.~L. Steele, Jr., G.~J. Sussman, M.~Wand, and H.~Abelson,
+  ``Revised5 report on the algorithmic language scheme,'' \emph{SIGPLAN Not.},
+  vol.~33, no.~9, pp. 2676, Sept. 1998. [Online]. Available:
+  \url{http://doi.acm.org/10.1145/290229.290234}
+\BIBentrySTDinterwordspacing
 
 \bibitem{luavm}
 ``{The Lua VM on the Web},''
@@ -111,5 +173,12 @@ J.~Juneau, \emph{Nashorn and Scripting}.\hskip 1em plus 0.5em minus 0.4em\relax
 \bibitem{emscripten}
 ``{Emscripten},'' \url{http://kripken.github.io/emscripten-site/}, accessed:
   2017-11-09.
+
+\bibitem{googlemapsapi}
+``{Google Maps API},'' \url{https://developers.google.com/maps/}, accessed:
+  2017-11-09.
+
+\bibitem{jquery}
+``{Jqeury},'' \url{https://jquery.com/}, accessed: 2017-11-09.
 
 \end{thebibliography}
