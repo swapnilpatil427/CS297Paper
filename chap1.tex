@@ -132,7 +132,7 @@ It is a procedural language with syntax like Pascal. It has control structures l
 
 \section{Goal}
 
-Main goal of this project is provide richer variety of languages for the client, by creating multi-language support for browser. It can be enabled by integrating client-side implementation of Scheme, Lua, with existing JavaScript. We will also dive deeper into questions like``How applications can benefit from it?" and ``How can we make multi-language environment easy to use?" by actually creating a demo application using multi-language environment in browser.
+Main goal of this project is to provide richer variety of languages for the client, by creating multi-language support for browser. It can be enabled by integrating client-side implementation of Scheme, Lua, with existing JavaScript. We will also dive deeper into questions like ``How applications can benefit from it?" and ``How can we make multi-language environment easy to use?" by actually creating a demo application using multi-language environment in browser.
 
 Another goal is to create browser plugin and client-side libraries for parsing and interpreting, Scheme and Lua using JavaScript. Also, implement language subset of these languages to interact with the document object model (DOM).
 
@@ -156,7 +156,7 @@ Multi-language support will be integrated into the web browsers (Mozilla, Chrome
 
 Whenever the new web page is loaded into the browser, plugin will scan the web page for any Scheme or Lua scripts on that page. Matching scripts will be parsed by the parser. Interpreter will interpret the parsed input into necessary DOM events. These events will be sent to the web page. 
 
-All the interaction between languages is managed by browser plugin. Advantage of this approach is, programmer does not have to worry about adding all the multi-language supporting libraries into the web page. Disadvantages of this approach is, plugin needs to be installed in the browser and some browsers are not yet supported by the plugin. Also, plugin needs a permission to read scripts from the web page. We overcome this disadvantage, by exposing Scheme and libraries, which can be included in the web page directly.
+All the interaction between languages is managed by browser plugin. Advantage of this approach is, programmer does not have to worry about adding all the multi-language supporting libraries into the web page. Disadvantage of this approach is, plugin needs to be installed in the browser and some browsers are not yet supported by the plugin. Also, plugin needs a permission to read scripts from the web page. We overcome this disadvantage, by exposing Scheme and libraries, which can be included in the web page directly.
 
 \subsubsection{JS Library}
 

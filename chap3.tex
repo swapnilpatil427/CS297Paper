@@ -1,8 +1,8 @@
 \chapter{Embedding Scheme in a browser} \label{scheme}
 
-The Scheme development environment is the foundation for a number of fascinating applications in education and research. But, executing Scheme program directly into the browser is not possible yet, since Scheme is not readily available in the browser. In such cases, JavaScript being de-facto of browser based applications, a JavaScript based and browser native implementation Scheme is desirable.
+The Scheme development environment is the foundation for a number of fascinating applications in education and research. But executing Scheme program directly into the browser is not possible yet, since Scheme is not readily available in the browser. In such cases, JavaScript being de-facto of browser based applications, a JavaScript based and browser native implementation Scheme is desirable.
 
-For this project, we created Scheme in browser using JavaScript. It provides supports for some of the core language features with additional feature of interacting with DOM to enable scheme to interact with browser.  The core of our environment is inspired by the scripting API \cite{javascripting} by taking the same approach to interact with other languages. 
+For this project we created Scheme in browser using JavaScript. It provides supports for some of the core language features with additional feature of interacting with DOM to enable scheme to interact with the browser.  The core of our environment is inspired by the scripting API \cite{javascripting} by taking the same approach to interact with other languages. 
 
 \begin{figure}[ht]
 	\begin{center}
@@ -43,7 +43,7 @@ The Scheme code will be embedded into the web page using script tag as shown in 
 
 As shown in the code snippet in Figure \ref{fig:schemescript}, Scheme code can be added inside the webpage using "$<$script type="text/scheme" $>$ $<$/script$>$" script tag. Our interpreter supports multiple number of Scheme script tags.
 
-In order for the browser to understand the Scheme, code snippet written inside Scheme script tags, is parsed and interpreted by our browser plugin. In case, the browser plugin is unavailable then we need to include library reference of interpreter on the page, as shown in the example below, 
+In order for the browser to understand the Scheme, code snippet written inside Scheme script tags is parsed and interpreted by our browser plugin. In case, the browser plugin is unavailable then we need to include library reference of interpreter on the page, as shown in the example below, 
 
 \begin{lstlisting}
 	<script src="simple-scheme-interpreter.js">
@@ -55,11 +55,11 @@ The interpreter consists of two parts:
 
 \subsection{Parser}
 
-After code snippets from script tags is read, first thing our library does is to parse the input code using PEG.JS and get the Abstract Syntax Tree (AST). The interpreter, then uses this AST to interpret the code.
+After code snippets from script tags is read, first thing our library does is to parse the input code using PEG.JS and get the Abstract Syntax Tree (AST). The interpreter then uses this AST to interpret the code.
 
 \subsubsection{PEG.js}
 
-We used a PEG.js library to create a parser for the Scheme \cite{pegjs}. PEG.js is simply a parser written in the JavaScript. We can use it to create parsers for complex data, and computer languages. A sample PEG.js grammar used to parse the Scheme code is shown in the code example \ref{fig:schemepeg},
+We used a PEG.js library to create a parser for the Scheme \cite{pegjs}. PEG.js is simply a parser written in the JavaScript. We can use it to create parsers for complex data and computer languages. A sample PEG.js grammar used to parse the Scheme code is shown in the code example \ref{fig:schemepeg},
 
 
 \begin{figure}[h]
@@ -279,7 +279,7 @@ Apart from providing DOM APIs for the browser, our Scheme interpreter supports i
 
 \section{Approach}
 
-Our Scheme interpreter uses the browser plugin approach, to help the browser to understand the Scheme code on the web page.
+Our Scheme interpreter uses the browser plugin approach to help the browser to understand the Scheme code on the web page.
 
 \subsection{Browser Plugin } 
 For this approach, the browser plugin (supported by Firefox, and Chrome) will push the instance of PEG.js parser and our Scheme interpreter into every newly opened browser tab. In this way, user doesn't have to worry about adding the library script on the page. Our library will then parse and interpret all the code enclosed within Scheme script.
@@ -318,4 +318,4 @@ When the plugin is unavailable in the browser, the Scheme support is achieved in
 
 
 
-As shown in code snippet in the Figure \ref{fig:browserwithoutpluginscheme}, instance of PEG.js and Scheme interpreter is embedded directly in the web page. Interpreter will interpret "(alert "Hello World") and it will show an alert on the screen with ``Hello World" as text.
+As shown in code snippet in the Figure \ref{fig:browserwithoutpluginscheme}, instance of PEG.js and Scheme interpreter is embedded directly in the web page. Interpreter will interpret ``(alert "Hello World") and it will show an alert on the screen with ``Hello World" as text.

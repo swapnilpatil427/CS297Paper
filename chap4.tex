@@ -1,10 +1,10 @@
 \chapter{Lua Environment} \label{lua}
 
-Currently, the web browser cannot execute the Lua code, as the Lua environment is not readily available in the browser. In this project, we will use the Lua VM provided by Mozilla \cite{luavm} to provide Lua support for the browser. The Lua VM will create Lua environment where we will be able to execute our program written in the Lua.
+Currently, the web browser cannot execute the Lua code, as the Lua environment is not readily available in the browser. In this project, we will use the Lua VM provided by Mozilla \cite{luavm} to provide Lua support for the browser. The Lua VM will create Lua environment where we will be able to execute our program written in Lua.
 
 \section{The Lua VM}
 
-The Lua VM runs in the browser by porting the entire ANSI C implementation of the Lua virtual machine to the Java Script using Emscripten \cite{emscripten} including garbage collection.
+The Lua VM runs in the browser by porting the entire ANSI C implementation of the Lua virtual machine to JavaScript using Emscripten \cite{emscripten} including garbage collection.
 
 The Lua VM can be added in the web page by referencing ``lua.vm.js'' script on the browser, as shown below.
 
@@ -97,9 +97,9 @@ Executing the code from Figure \ref{fig:luafunctioncode} in the browser creates 
 
 Similar to the Scheme environment, we implemented browser plugin approach to include Lua VM in the web page, to help browser understand Lua code on the web page.
 
-For this approach, browser plugin (supported by Firefox and Chrome) will push the instance of Lua VM in every newly opened browser tab. In this way, user doesn't have to worry about adding the library script on the page. Lua VM library will then interpret all the code enclosed within "type=text/lua" script.
+For this approach, browser plugin (supported by Firefox and Chrome) will push the instance of Lua VM in every newly opened browser tab. In this way, user doesn't have to worry about adding the library script on the page. Lua VM library will then interpret all the code enclosed within ``type=text/lua" script.
 
-In case of using browser plugin, our example code to render alert in the browser is shown in Figure \ref{fig:luaalertplugin}.
+In case of using a browser plugin, our example code to render alert in the browser is shown in Figure \ref{fig:luaalertplugin}.
 
 \begin{figure}[H]
 	\begin{lstlisting}
@@ -112,9 +112,9 @@ In case of using browser plugin, our example code to render alert in the browser
 \end{figure}
 
 As shown in the code snippet from Figure \ref{fig:luaalertplugin}, we don't need to add any external libraries in our webpage to interpret Lua script, browser plugin will take care of it.
-Executing above code in the browser with our plugin installed will alert user with "hello from Lua script tag in HTML!'" as text.
+Executing above code in the browser with our plugin installed will alert the user with ``hello from Lua script tag in HTML!" as text.
 
 
 \subsection{JS Library}
 
-Whenever plugin is unavailable the Lua VM support is achieved in the web page by including the  Lua VM library in the web page itself. When the web page is loaded in the browser, our library will read code snippet inside "type=text/lua" script and will interpret it, as shown in Figure \ref{fig:luaalertcode}.
+Whenever plugin is unavailable the Lua VM support is achieved in the web page by including the Lua VM library in the web page itself. When the web page is loaded in the browser, our library will read code snippet inside ``type=text/lua" script and will interpret it, as shown in Figure \ref{fig:luaalertcode}.
