@@ -1,52 +1,57 @@
 \chapter{Multi Language App}
 
-After building support for various languages and their interaction in previous sections. This section demonstrate, how to build a real world application using multiple languages. For this project, we created Hotel search application which takes advantages of multi langauge environment to render the app. This application helps user to search for hotels by specifying city and the country. 
+After building support for various languages and their interaction in previous sections, this section demonstrates how to build a real world application using multiple languages. For this project, we created hotel search application which takes advantages of multi-language environment to render the app. This application helps user to search for hotels by specifying the city and country. 
 
-Apart from taking advantage of multi langauge environment (Scheme, Lua, and Java Script), app also uses libraries like "Google maps APIs" \cite{googlemapsapi}, "Jquery" \cite{jquery} , etc. Home screen of the application is shown in the figure \ref{fig:multilangapp}
+Apart from taking advantage of multi-language environment (Scheme, Lua, and JavaScript), app also uses libraries like "Google maps APIs" \cite{googlemapsapi}, "Jquery" \cite{jquery} etc. Home screen of the application is shown in Figure \ref{fig:multilangapp}.
 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=\linewidth]{./images/multilangapp.png}
 	\end{center}
-	\caption{Hotel Search : Multi Language Application}
+	\caption{Hotel Search: Multi-language Application}
 	\label{fig:multilangapp}
 \end{figure}
 
-Application provides following functionalities : 
+Application provides the following functionalities : 
 \begin{itemize}
 	\item {\textbf{Cities Auto Complete} : It provides the interface to enter the city. }
-	\item {\textbf{Country Drop Down} : It provides the drop down to select the countries from the list of countries.}
-	\item {\textbf{Search Button} : Button to search hotels in selected city..}
+	\item {\textbf{Country Drop Down} : It provides the drop down to select the countries from a list of countries.}
+	\item {\textbf{Search Button} : Button to search hotels in a selected city.}
 	\item {\textbf{Map} : Provides a window to display google map on the screen.}
-	\item {\textbf{Result} : Provides a content holder, to show the search results.}
+	\item {\textbf{Result} : Provides a content holder to show the search results.}
 \end{itemize}
 
-Java Script in the application handles  rendering of the map, and fetching the search result from google places API. Java Script maintains the reference to maps, countries selected, search text in its global scope. Java Script also calls scheme "getElem" to get the reference of particular element on the page, as shown in the code below, 
+JavaScript in the application handles rendering of the map and fetching search result from google places API. JavaScript maintains the reference to maps, countries selected, search text in its global scope. JavaScript also calls Scheme's "getElem" function to get the reference of particular element on the page, as shown in Figure \ref{fig:js-code}, 
 
- \begin{lstlisting}[frame=single, style=base]
- 
- // Gets the map element reference.
- var elem =scheme.evaluate('(getelem "#map")');
- 
- // Gets the Result window reference.
- var infocontent = scheme.evaluate('(getelem "#info-content")');
- 
- // Gets the Search City text box reference.
- var autocomplet = scheme.evaluate('(getelem "#autocomplete")');
- 
- \end{lstlisting} 
+\begin{figure}[H]
+	\begin{lstlisting}
+	
+	// Gets the map element reference.
+	var elem =scheme.evaluate(`(getelem "#map")');
+	
+	// Gets the Result window reference.
+	var infocontent = scheme.evaluate(`(getelem ``#info-content'')');
+	
+	// Gets the Search City text box reference.
+	var autocomplet = scheme.evaluate(`(getelem '``#autocomplete'')');
+	
+	\end{lstlisting} 
+	\caption{JavaScript code}
+	\label{fig:js-code}
+\end{figure}
 
-Scheme code in the application is responsible for initialising the app, and provide on click functionality for the "Search Hotels" button, as shown in figure \ref{fig:schemeINteraction}.
+
+Scheme code in the application is responsible for initializing the app, and provide on click functionality for the "Search Hotels" button, as shown in Figure \ref{fig:schemeINteraction}.
 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=\linewidth]{./images/schemeINteraction.png}
 	\end{center}
-	\caption{Scheme Contribution : Hotel Search Application}
+	\caption{Scheme Contribution: Hotel Search Application}
 	\label{fig:schemeINteraction}
 \end{figure}
 
-Following code shows, the scheme code which enable the functionalities shown in figure \ref{fig:schemeINteraction}
+Following code shows the scheme code which enable the functionalities shown in figure \ref{fig:schemeINteraction}
 
  \begin{lstlisting}[frame=single, style=base]
 <script type="text/scheme">
@@ -86,7 +91,7 @@ Following code shows, the scheme code which enable the functionalities shown in 
  
 Lua handles the drop down event on countries drop down. Lua gets the reference to document object from JS global scope, it then sets the change event on drop down. When the countries drop down selection is changed, lua sets the focus of the map on the selected country, sets the zoom level and also calls the "clearSearchResult" and "clearMarkers" from Java Script, to clear any result from previous search and markers on the map. 
 
-Lua code that handles these interaction is shown below, 
+Lua code that handles these interactions is shown below, 
  
  \begin{lstlisting}[frame=single, style=base]
 <script type="text/lua">

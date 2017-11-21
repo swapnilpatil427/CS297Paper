@@ -21,13 +21,13 @@ The Common Language Runtime (CLR) is a virtual component of Microsoft's .NET fra
 
 Tools and compilers expose the CLR's functionality, so that you can take advantage of this common language runtime's managed execution environment. The code written to target the common language runtime is known as managed code. This code can be benefited from features such as a cross-language integration, cross-language exception handling, versioning, and security by providing simplified way for component interactions \cite{commonlanguageruntime}.
 
-The compiler converts the source code into the Intermediate Langauge Code (IL code). IL code is CPU independent instructions that can be converted into the native code. At the runtime, The CLR's Just In Time (JIT) compiler converts this IL code into native code.
+The compiler converts the source code into the Intermediate Language Code (IL code). IL code is CPU independent instructions that can be converted into the native code. At the runtime, The CLR's Just In Time (JIT) compiler converts this IL code into native code.
 
 Compilers and tools able to produce the output consumed by the CLR, because, format of metadata, type systems are defined by the public standard called the ECMA Common Language Infrastructure \cite{Gough:2001:CNC:559569}.
 
 The Compiler emits metadata describing members, types, and references in your managed code to insure common language runtime provides services to managed code. This metadata is used to load and locate classes, load instances in memory, generate native code, enforce security \cite{Gough:2001:CNC:559569}.
 
-Achieving even slight levels of language interoperability is pretty difficult because the wide variation in programming language features, and implementations. The CLR makes it easy to build components, and application whose objects can interact with each other across the languages. Code written in different languages can be integrated, their behavior is tightly integrated. For example, the class written in one language can be derived from the class written in other language and can call method of the class it is derived from. We can also pass instance of the class (Object) from one language to another. This is possible because language compilers, and tools uses common type system provided by CLR and they follow the CLR’s standard rule for defining, creating, and pertaining types \cite{Kennedy:2001:DIG:381694.378797}.
+Achieving even slight levels of language interoperability is pretty difficult because of the wide variation in programming language features, and implementations. The CLR makes it easy to build components, and application whose objects can interact with each other across the languages. Code written in different languages can be integrated, their behavior is tightly integrated. For example, the class written in one language can be derived from the class written in other language and can call method of the class it is derived from. We can also pass instance of the class (Object) from one language to another. This is possible because language compilers, and tools uses common type system provided by CLR and they follow the CLR’s standard rule for defining, creating, and pertaining types \cite{Kennedy:2001:DIG:381694.378797}.
 
 
 CLR provides following benefits: 
@@ -42,7 +42,7 @@ CLR provides following benefits:
 
 \subsection{JVM}
 
-The Java programming language \cite{Gosling:1996:JLS:560667} implementation compiles to Java virtual machine langauge (JVML) \cite{Lindholm:2014:JVM:2636992},  also, known as Java-byte code. JVML is stored as java class files. It is either interpreted or compiled Just-In-Time (JIT) to native code by Java Virtual Machine (JVM). JIT allows efficient code as it is tailor as per the processor. Using such intermediate language provides many benefits \cite{clrspecification}. Languages supported by JVM compiles to common byte-code, which helps in language interoperationability.
+The Java programming language \cite{Gosling:1996:JLS:560667} implementation compiles to Java virtual machine language (JVML) \cite{Lindholm:2014:JVM:2636992},  also, known as Java-byte code. JVML is stored as java class files. It is either interpreted or compiled Just-In-Time (JIT) to native code by Java Virtual Machine (JVM). JIT allows efficient code as it is tailored as per the processor. Using such intermediate language provides many benefits \cite{clrspecification}. Languages supported by JVM compiles to common byte-code, which helps in language interoperability.
 
 Singer, discusses about difference between JVM and CLR \cite{Singer:2003:JVC:957289.957341}.
 
@@ -59,15 +59,15 @@ According to the Java documentation \cite{javascripting} Way to access nashorn e
 
 1.	Import the javax.script package.
 
-2.	Create a ScriptEngineManager object.
+2.	Instantiate a ScriptEngineManager object.
 
-JavaScripting APIs can be accessed through the ScriptEngineManager class. A ScriptEngineManager object is used to instantiate ScriptEngine objects and maintain global variable values shared by API. 
+JavaScripting APIs can be accessed through the ScriptEngineManager class. A ScriptEngineManager object instantiates ScriptEngine objects. It also maintains a global variable values shared by API. 
 
 3.	Obtain instance of ScriptEngine from the manager with getEngineByName() method.
 
 getEngineByName() method takes one string parameter with name of the script engine. To obtain instance of the nashorn engine pass “nashorn”. We can also use one of the following arguments "ecmascript", "ECMAScript", "Nashorn", "JavaScript", "javascript", "js", "JS".
  
-After, we have the Nashorn engine instance, we can use to embed scripts in our Java application. Let's see some of the examples, which shows the use of the Nashorn:
+After, we have the Nashorn engine instance, we can use to embed scripts in our Java application. Let's see some of the examples, which show the use of Nashorn:
 
 \textbf{Example 1 - Evaluating a statement}
 
@@ -78,22 +78,22 @@ Figure \ref{fig:nashornevalastatement} shows the example, which can evaluate "He
 	import javax.script.*;
 	
 	public class EvaluateScript {
-	 public static void main(String[] args) throws Exception {
-	  ScriptEngineManager manager = new ScriptEngineManager();
-	  ScriptEngine engine = manager.getEngineByName(``nashorn");
+	 public static void main(String[] arguments) throws Exception {
+	  ScriptEngineManager engineManager = new ScriptEngineManager();
+	  ScriptEngine eng = engineManager.getEngineByName(``nashorn'');
 	
 	  // evaluate JavaScript code
-	  engine.eval(``print(`Hello, World')");
+	  eng.eval(``print(`Hello, World')'');
 	 }
 	}
 	\end{lstlisting}
-	\caption{Evaluating a statement : Nashorn}
+	\caption{Evaluating a statement: Nashorn}
 	\label{fig:nashornevalastatement}
 \end{figure}
 
 In the example shown in Figure \ref{fig:nashornevalastatement}, the script engine calls the eval() method and executes JavaScript string passed as an argument to eval() function. 
 
-\textbf{Example 2 - Evaluating a Script File}
+\textbf{Example 2 - Evaluating a JavaScript file}
 
 
 \begin{figure}[ht]
@@ -101,22 +101,22 @@ In the example shown in Figure \ref{fig:nashornevalastatement}, the script engin
 	import javax.script.*;
 	
 	public class EvalFile {
-	 public static void main(String[] args) throws Exception {
-	  ScriptEngineManager manager = new ScriptEngineManager();
-	  ScriptEngine engine = manager.getEngineByName(``nashorn");
+	 public static void main(String[] arguments) throws Exception {
+	  ScriptEngineManager engineManager = new ScriptEngineManager();
+	  ScriptEngine eng = engineManager.getEngineByName(``nashorn'');
 	
-	  engine.eval(new java.io.FileReader(``script.js"));
+	  eng.eval(new java.io.FileReader(``script.js''));
 	}
 	}
 	\end{lstlisting}
-	\caption{Evaluating a Script File : Nashorn}
+	\caption{Evaluating a JavaScript file: Nashorn}
 	\label{fig:nashornevalafile}
 \end{figure}
 
 
 In the example shown in Figure \ref{fig:nashornevalafile}, eval() method uses fileReader that reads JavaScript file and evaluates it.
 
-\textbf{Example 3 - Exposing a Java Object as a Global Variable}
+\textbf{Example 3 - Exposing a object from Java as a JavaScript's global variable}
 
 \begin{figure}[ht]
 	\begin{lstlisting}
@@ -124,26 +124,24 @@ In the example shown in Figure \ref{fig:nashornevalafile}, eval() method uses fi
 	import java.io.*;
 	
 	public class ScriptVars {
-	 public static void main(String[] args) throws Exception {
-	  ScriptEngineManager manager = new ScriptEngineManager();
-	  ScriptEngine engine = manager.getEngineByName(``nashorn");
+	 public static void main(String[] arguments) throws Exception {
+	  ScriptEngineManager engineManager = new ScriptEngineManager();
+	  ScriptEngine eng = engineManager.getEngineByName(``nashorn'');
 	
 	  // create File object
-	  File f = new File(``test.txt");
+	  File f = new File(``test.txt'');
 	
 	  // expose File object as a global variable to the engine
-	  engine.put(``file", f);
+	  eng.put(``file'', f);
 	
 	  // evaluate JavaScript code and access the variable
-	  engine.eval(``print(file.getAbsolutePath())");
-	}
+	  eng.eval(``print(file.getAbsolutePath())'');
+	 }
 	}
 	
 	\end{lstlisting}
-	\caption{Exposing a Java Object as a Global Variable : Nashorn}
+	\caption{Exposing a object from Java as a JavaScript's global variable: Nashorn}
 	\label{fig:nashornevalaobject}
 \end{figure}
 
-
-
-In the example shown in Figure \ref{fig:nashornevalaobject}, a file object created in the Java is exposed to the Nashorn engine as a global variable. The put() method adds this file to global variable as the name file. Eval() function then calls Javascript code, which access this file variable as a global variable and calls the getAbsolutePath() method.
+In the example shown in Figure \ref{fig:nashornevalaobject}, a file object in Java is passed to the Nashorn engine as a JavaScript's global variable. The put() method adds this file to global variable as the name file. Eval() function then calls Javascript code, which accesses this file variable as a JavaScript's global variable and executes the getAbsolutePath() method.

@@ -8,7 +8,7 @@ For this project, we created Scheme in browser using JavaScript. It provides sup
 	\begin{center}
 		\includegraphics[width=\linewidth]{./images/SchemeEnvironmentusingJavaScript.png}
 	\end{center}
-	\caption{Scheme Environment using JavaScript : Architecture}
+	\caption{Scheme Environment using JavaScript: Architecture}
 	\label{fig:SchemeEnvironmentusingJavaScript}
 \end{figure}
 
@@ -16,7 +16,7 @@ For this project, we created Scheme in browser using JavaScript. It provides sup
 As shown in Figure \ref{fig:SchemeEnvironmentusingJavaScript}, Our Scheme library takes web page's embedded Scheme scripts as input. Our plugin will parse and then interpret the input scripts using JavaScript. This interpreted Scheme code then interacts with the browser, to help render web pages with more dynamic behaviour. 
 
 \section{Interpreter} 
-As discussed in previous chapters, browsers does not have readily available support for the Scheme. To help enable the browser to understand code written in the Scheme, we built a Scheme interpreter written in the JavaScript. Using our Scheme interpreter, browser will understand program written in the Scheme.
+As discussed in previous chapters, browsers do not have a readily available support for the Scheme. To help enable the browser to understand code written in the Scheme, we built a Scheme interpreter written in the JavaScript. Using our Scheme interpreter, browser will understand program written in the Scheme.
 
 The Scheme code will be embedded into the web page using script tag as shown in the code Example \ref{fig:schemescript}, 
 
@@ -55,11 +55,11 @@ The interpreter consists of two parts:
 
 \subsection{Parser}
 
-After, code snippets from script tags is read, first thing our library do is to parse the input code using PEG.JS and get the Abstract Syntax Tree (AST). The interpreter, then uses this AST to interpret the code.
+After code snippets from script tags is read, first thing our library does is to parse the input code using PEG.JS and get the Abstract Syntax Tree (AST). The interpreter, then uses this AST to interpret the code.
 
 \subsubsection{PEG.js}
 
-We used a PEG.js library to create a parser for the Scheme \cite{pegjs}. PEG.js is simple a parser written in the JavaScript. We can use it to create parsers for complex data, and computer languages. A sample PEG.js grammar used to parse the Scheme code is shown in the code example \ref{fig:schemepeg},
+We used a PEG.js library to create a parser for the Scheme \cite{pegjs}. PEG.js is simply a parser written in the JavaScript. We can use it to create parsers for complex data, and computer languages. A sample PEG.js grammar used to parse the Scheme code is shown in the code example \ref{fig:schemepeg},
 
 
 \begin{figure}[h]
@@ -110,9 +110,9 @@ The interpreted output is either DOM event or JavaScript code which the browser 
 
 \section{Scheme for Browser} 
 
-Following the R5RS standard \cite{Adams:1998:RRA:290229.290234}, variable are  blocked scoped in the program. 
+Following the R5RS standard \cite{Adams:1998:RRA:290229.290234}, variables are  blocked scoped in the program. 
 
-Blocks can be created with let, or define expressions, like so:
+Blocks can be created with let, or define expressions, like:
 
 
 \begin{lstlisting}
@@ -154,7 +154,7 @@ Like the universal Scheme, our implementation of the Scheme supports following f
 	\end{itemize}
 \end{itemize}
 
-It also, provides special language syntax to interact with the browser's DOM. We chose to include basic, most used browser functions for our Scheme DOM API. This is only available for browser. 
+It also provides special language syntax to interact with the browser's DOM. We chose to include basic, most used browser functions for our Scheme DOM API. This is only available for browser. 
 
 \begin{itemize}[label={}]
 	\item First.
@@ -226,7 +226,7 @@ It also, provides special language syntax to interact with the browser's DOM. We
 			    \end{itemize}
 			\item {(element-update! elem html)}
 			    \begin{itemize}[label={}]
-			    	\item  Update the specified element with the provided html.
+			    	\item  Updates the specified element with the provided html.
 			    \end{itemize}
 			\item {(element-replace! elem x)}
 			    \begin{itemize}[label={}]
@@ -244,7 +244,7 @@ It also, provides special language syntax to interact with the browser's DOM. We
 	\end{itemize}
 \end{itemize}
 
-Apart, from providing DOM APIs for the browser, our Scheme interpreter supports, interface to some of the basic JavaScript functions as shown:
+Apart from providing DOM APIs for the browser, our Scheme interpreter supports interface to some of the basic JavaScript functions as shown:
 
 
 \begin{itemize}
@@ -252,7 +252,7 @@ Apart, from providing DOM APIs for the browser, our Scheme interpreter supports,
 	\begin{itemize}
 		\item {(js-eval str)
 			\begin{itemize}[label={}]
-				\item  evaluate str as JavaScript code}
+				\item  Evaluate str as JavaScript code}
 			\end{itemize}
 			 
 	\end{itemize}
@@ -282,14 +282,14 @@ Apart, from providing DOM APIs for the browser, our Scheme interpreter supports,
 Our Scheme interpreter uses the browser plugin approach, to help the browser to understand the Scheme code on the web page.
 
 \subsection{Browser Plugin } 
-For this approach, the browser plugin (supported by Firefox, and Chrome) will push the instance of PEG.js parser and our Scheme interpreter into every newly opened browser tab. In this way, user don't have to worry about adding the library script on the page. Our library will then parse and interpret all the code enclosed within Scheme script.
+For this approach, the browser plugin (supported by Firefox, and Chrome) will push the instance of PEG.js parser and our Scheme interpreter into every newly opened browser tab. In this way, user doesn't have to worry about adding the library script on the page. Our library will then parse and interpret all the code enclosed within Scheme script.
 
 
 \begin{figure}[h]
 	\begin{lstlisting}  
-	<script type="text/scheme">
-	(alert "Hello World")
-	(console-log "Hello World")
+	<script type=``text/scheme''>
+	(alert ``Hello World'')
+	(console-log ``Hello World'')
 	</script>
 	\end{lstlisting}
 	\caption{Scheme browser plugin example}
@@ -297,19 +297,19 @@ For this approach, the browser plugin (supported by Firefox, and Chrome) will pu
 \end{figure}
 
 
-As shown in the Figure \ref{fig:browserpluginscheme}, we don't need to add any external libraries into our web page. Browser plugin will take care of interpreting the Scheme scripts.After, executing the code in Figure \ref{fig:browserpluginscheme}, in the browser with our plugin installed will alert user with ``Hello World" as text.
+As shown in Figure \ref{fig:browserpluginscheme}, we don't need to add any external libraries into our web page. Browser plugin will take care of interpreting the Scheme scripts. After executing the code in Figure \ref{fig:browserpluginscheme} in the browser with our plugin installed, will alert user with ``Hello World" as text.
 
 
 \subsubsection{JS Library}
 
-When the plugin is unavailable in the browser, the Scheme support is achieved in the web page by including Scheme interpreter and parser libraries in the web page itself. When the web page will loaded in the browser, libraries will read code snippet inside Scheme script and will interpret it, as shown in the Figure \ref{fig:browserwithoutpluginscheme}. 
+When the plugin is unavailable in the browser, the Scheme support is achieved in the web page by including Scheme interpreter and parser libraries in the web page itself. When the web page is loaded in the browser, libraries will read code snippet inside Scheme script and will interpret it, as shown in the Figure \ref{fig:browserwithoutpluginscheme}. 
 
 \begin{figure}[h]
 	\begin{lstlisting} 
-	<script src="./simple-scheme-interpreter.js"/> 
-	<script type="text/scheme">
-	(alert "Hello World")
-	(console-log "Hello World")
+	<script src=``./simple-scheme-interpreter.js''/> 
+	<script type=``text/scheme''>
+	(alert ``Hello World'')
+	(console-log ``Hello World'')
 	</script>
 	\end{lstlisting}
 	\caption{Scheme without browser plugin example}
